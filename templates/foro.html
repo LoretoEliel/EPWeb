@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="icon" type="image/png" href="/static/img/logo.png">
+
+        <!-- FUENTES Y ICONS -->
+            <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!-- FIN DE FUENTES Y ICONS -->
+
+        <!-- ARCHIVOS CSS -->
+            <link rel="stylesheet" href="/static/css/icon.css">
+            <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+            <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+            <link href="/static/css/material-kit.css" rel="stylesheet">
+            <link href="/static/css/demo.css" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="/static/css/foro.css">
+
+            <script src="/static/emoji/twemoji.min.js?2.3.0"></script>
+        <!-- FIN DE ARCHIVOS CSS -->
+        	<script type="text/javascript">
+    			// var int=self.setInterval("refresh()",20000);
+    			// function refresh() {
+       			//    location.reload(true);
+    			// }
+			</script>
+
+		<title>El Programador Web - Foro</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="lista-user col-md-3 col-lg-3">
+					<div class="lista-user__config col-xs-12 col-ms-12 col-md-12 col-lg-12">
+						<a href="/home/" class="col-md-4 lista-user__opc">
+							<span class="material-icons config">keyboard_backspace</span>
+						</a>
+						<a href="/foro/" class="col-md-4 lista-user__opc">
+							<span class="material-icons config">update</span>
+						</a>
+						<a href="#" class="col-md-4 lista-user__opc">
+							<span class="material-icons config">settings</span>
+						</a>
+					</div>
+					<ul class="lista-caja">
+						{% if object_list %}       
+                        {% for User in object_list %}
+                        <a href="#" class="lista-caja__link">
+							<li class="lista-caja__user">
+								<span class="material-icons">wifi_tethering</span>
+								{{ User.username }}
+							</li>
+						</a>
+						{% endfor %}
+						{% endif %}
+					</ul>
+				</div>
+				<div class="chat-container col-md-9 col-lg-9">
+				    <!--CONTENEDOR DE LOS MENSAJES-->
+				    <div id="msg-list-div" id="msg-list" class="chat-caja">
+					    {% for obj in chat %}
+					    {% if obj.user == request.user %}
+					    <div class="chat-caja__mensaje enviado">
+							<div class="chat-caja__nombre">   
+								<h2>{{ user.username }}</h2>
+							</div>
+							<p class="chat-caja__content text-left right">{{ obj.mensaje }}</p>
+							<p class="chat-caja__fecha">{{ obj.enviado }}</p>
+						</div>
+						{% else %}
+						<div class="chat-caja__mensaje recibido">
+						    <div class="chat-caja__nombre"> 
+							    <h2>{{ obj.user }}</h2>
+							</div>
+							<p class="chat-caja__content left">{{ obj.mensaje }}</p>
+							<p class="chat-caja__fecha">{{ obj.enviado }}</p>
+						</div>
+						{% endif %}
+						{% empty %}
+						    <li style="text-align: center;" class="text-right list-group-item">El Foro no ha iniciado aun!</li>    
+						{% endfor %}
+					</div> 
+					<script>
+					    var chatlist = document.getElementById('msg-list-div');
+					    chatlist.scrollTop = chatlist.scrollHeight;
+					</script>   
+					<!--FIN DEL CONTENEDOR-->
+
+				<!--CONTENEDOR DEL REDACTAR MENSAJE Y ENVIAR-->
+					{% block content %}
+					<form id="chat-form" method="POST" class="redactar">
+					    {% csrf_token %}
+					    <div id="chat-bottom" class="chat-form redactar__caja">
+					    	<div class="redactar__emoji">
+								<ul id="emojis-mostrar" class="redactar__img emoji-list">
+							      <!--CARITAS AMARILLAS-->
+							      <li id="iconos" class="emojis">&#x1F60A;</li>
+							      <li id="iconos" class="emojis">&#x1F60B;</li>
+							      <li id="iconos" class="emojis">&#x1F60C;</li>
+							      <li id="iconos" class="emojis">&#x1F60D;</li>
+							      <li id="iconos" class="emojis">&#x1F60E;</li>
+							      <li id="iconos" class="emojis">&#x1F60F;</li>
+							      <li id="iconos" class="emojis">&#x1F61A;</li>
+							      <li id="iconos" class="emojis">&#x1F61B;</li>
+							      <li id="iconos" class="emojis">&#x1F61C;</li>
+							      <li id="iconos" class="emojis">&#x1F61D;</li>
+							      <li id="iconos" class="emojis">&#x1F61E;</li>
+							      <li id="iconos" class="emojis">&#x1F61F;</li>
+							      <li id="iconos" class="emojis">&#x1F62A;</li>
+							      <li id="iconos" class="emojis">&#x1F62B;</li>
+							      <li id="iconos" class="emojis">&#x1F62C;</li>
+							      <li id="iconos" class="emojis">&#x1F62D;</li>
+							      <li id="iconos" class="emojis">&#x1F62E;</li>
+							      <li id="iconos" class="emojis">&#x1F62F;</li>
+							      <li id="iconos" class="emojis">&#x1F63A;</li>
+							      <li id="iconos" class="emojis">&#x1F63B;</li>
+							      <li id="iconos" class="emojis">&#x1F63C;</li>
+							      <li id="iconos" class="emojis">&#x1F63D;</li>
+							      <li id="iconos" class="emojis">&#x1F63E;</li>
+							      <li id="iconos" class="emojis">&#x1F63F;</li>
+							      <li id="iconos" class="emojis">&#x1F47F;</li>
+							      <li id="iconos" class="emojis">&#x1F445;</li>
+							      <li id="iconos" class="emojis">&#x1F44A;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F44A;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F44A;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F44A;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F44A;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F44A;</li>
+							      <li id="iconos" class="emojis">&#x1F44B;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F44B;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F44B;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F44B;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F44B;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F44B;</li>
+							      <li id="iconos" class="emojis">&#x1F44C;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F44C;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F44C;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F44C;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F44C;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F44C;</li>
+							      <li id="iconos" class="emojis">&#x1F44D;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F44D;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F44D;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F44D;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F44D;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F44D;</li>
+							      <li id="iconos" class="emojis">&#x1F44E;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F44E;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F44E;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F44E;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F44E;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F44E;</li>
+							      <li id="iconos" class="emojis">&#x1F44F;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F44F;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F44F;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F44F;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F44F;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F44F;</li>
+							      <li id="iconos" class="emojis">&#x1F91A;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F91A;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F91A;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F91A;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F91A;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F91A;</li>
+							      <li id="iconos" class="emojis">&#x1F91B;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F91B;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F91B;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F91B;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F91B;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F91B;</li>
+							      <li id="iconos" class="emojis">&#x1F91C;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F91C;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F91C;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F91C;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F91C;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F91C;</li>
+							      <li id="iconos" class="emojis">&#x1F91D;</li>
+							      <li id="iconos" class="emojis">&#x1F91E;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F91E;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F91E;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F91E;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F91E;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F91E;</li>
+							      <li id="iconos" class="emojis">&#x1F446;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F446;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F446;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F446;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F446;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F446;</li>
+							      <li id="iconos" class="emojis">&#x1F447;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F447;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F447;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F447;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F447;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F447;</li>
+							      <li id="iconos" class="emojis">&#x1F448;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F448;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F448;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F448;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F448;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F448;</li>
+							      <li id="iconos" class="emojis">&#x1F449;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F449;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F449;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F449;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F449;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F449;</li>
+							      <li id="iconos" class="emojis">&#x1F450;&#x1F3FB;</li>
+							      <li id="iconos" class="emojis">&#x1F450;&#x1F3FC;</li>
+							      <li id="iconos" class="emojis">&#x1F450;&#x1F3FD;</li>
+							      <li id="iconos" class="emojis">&#x1F450;&#x1F3FE;</li>
+							      <li id="iconos" class="emojis">&#x1F450;&#x1F3FF;</li>
+							      <li id="iconos" class="emojis">&#x1F450;</li>
+							      <!--PRIMER LOTE-->
+							    </ul>
+					    		<div id="btn-emoji" class="material-icons icon-emoji">mood</div>
+					    	</div>
+					        <textarea class="redactar__escribir" id="id_mensaje" name="mensaje" placeholder="Escribir mensaje..." required></textarea>                
+					        <button class="redactar__btn material-icons">send</button>
+						    <input type="hidden" id="send" name="next" value="{{ next }}">
+						</div>
+					</form>
+					{% endblock %}
+				</div>	
+				<!--FIN DEL CONTENDOR-->
+			</div>
+		</div>
+		<!-- ARCHIVOS JS -->
+	        <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+	        <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+	        <script src="/static/js/material.min.js"></script>
+    	<!-- FIN DE ARCHIVOS JS --> 
+			
+			<script type="text/javascript">
+				$('#btn-emoji').click(function(){
+					$('#emojis-mostrar').toggleClass('mostrar_emoji');
+				});
+
+				$('.emojis').click(function(){
+					alert("--LO SIENTO-- los emojis se encuentran en desarrollo.");
+				});
+			</script>
+
+    	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	    	<script src="/static/js/nouislider.min.js" type="text/javascript"></script>
+
+		<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	    	<script src="/static/js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+		<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	    	<script src="/static/js/material-kit.js" type="text/javascript"></script>
+	</body>
+</html>

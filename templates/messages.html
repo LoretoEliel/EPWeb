@@ -1,0 +1,23 @@
+<!--CONTENEDOR DE LOS MENSAJES-->
+        <div id="msg-list-div" id="msg-list" class="chatlog">
+        {% for obj in chat %}
+            {% if obj.user == request.user %}
+            <div class="chat enviado">  
+                <h1 class="nombre-right">{{user.username}}</h1>
+                <p class="chat-message text-right list-group-item">{{ obj.mensaje }}</p>
+                <p class="fecha-right">{{ obj.enviado }}</p>
+            </div>
+            {% else %}
+            <div class="chat recibido">
+                <div class="nombre"> 
+                    <h1 class="nombre-left">{{ obj.user }}</h1>
+                </div>
+                <p class="chat-message text-left list-group-item">{{ obj.mensaje }}</p>
+                <p class="fecha-left">{{ obj.enviado }}</p>
+            </div>
+            {% endif %}
+        {% empty %}
+                    <li class="text-right list-group-item">No Hay Mensajes!</li>    
+        {% endfor %}    
+        </div>  
+        <!--FIN DEL CONTENEDOR-->
