@@ -84,11 +84,10 @@ WSGI_APPLICATION = 'ElProgramadorWeb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'de6qkuk313qhhl',
-        'USER': 'aocdsenzvoxxfl',
-        'PASSWORD': 'dc1ca28b568b3685a990b38fd800b190dca51ca83fe616f1559ab1231cd80400',
-        'HOST': 'ec2-107-21-99-176.compute-1.amazonaws.com',
-        'PORT': 5432,
+        'NAME': 'hastacuando',
+        'USER': 'postgres',
+        'PASSWORD': '@EliDjangoDev',
+        'HOST': 'localhost',
     }
 }
 
