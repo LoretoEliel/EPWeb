@@ -20,6 +20,9 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import FormView
 
 from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from .models import *
 from .forms import *
 # Create your views here.
@@ -67,27 +70,19 @@ def register_success(request):
 
 @login_required()
 def my_perfil(request):
-    return render_to_response('mi_perfil.html', context_instance=RequestContext(request))
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Su contraseña se actualizó correctamente!')
+            return redirect('MyPerfil')
+        else:
+            messages.error(request, 'Corrija el error a continuación.')
+    else:
+        form = PasswordChangeForm(request.user)
 
-"""
-class ContactFormView(FormView):
-    template_name = 'contacto.html'
-    form_class = ContactoFrom
-    success_url = reverse_lazy('Index')
- 
-    def form_valid(self, form):
-        nombre = form.cleaned_data['nombre']
-        apellido = form.cleaned_data['apellido']
-        email = form.cleaned_data['email']
-        tlf = form.cleaned_data['tlf']
-        mensaje = form.cleaned_data['mensaje']
-
-        mail = EmailMessage(nombre, apellido, email, tlf, mensaje, to='EliDjangoDev@gmail.com')
- 
-        mail.send()
- 
-        return super(ContactFormView, self).form_valid(form)
-""" 
+    return render_to_response('mi_perfil.html', {'form': form}, context_instance=RequestContext(request))
 
 def contacto_email(request):
     if request.method == 'POST':

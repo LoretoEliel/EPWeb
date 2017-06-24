@@ -1,9 +1,28 @@
+body {
+	overflow: hidden; 
+}
+
+.main-raised {
+	margin-top: 1em;
+	height: 470px !important;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.main-raised::-webkit-scrollbar {
+	width: 10px;
+	background: #ddd;
+}
+
+.main-raised::-webkit-scrollbar-thumb {
+	background: #9C27B0 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+    background: #9C27B0 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    background: #9C27B0 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+}
+
 .volver {
-	position: absolute;
-	top: -0.5em;
-	right: 0.4em;
-	margin: auto;
-	z-index: 20;
+	position: relative;
+	text-align: right;
 }
 
 .volver button {
@@ -52,4 +71,51 @@
 .estatus p {
 	margin-top: -2em;
 	margin-left: 2.5em;
+}
+
+/*CAMBIO DE CONTRASEÑA FORMULARIO*/
+
+.helptext {
+	width: 49%;
+	background: #9C27B0 linear-gradient(
+              rgba(255,255,255,0.5),
+              rgba(0,0,0,0.5)
+		);
+	color: #fff;
+	padding: 0.5em 2em;
+}
+
+.titulo__help {
+	padding: 0;
+	margin: 0;
+	font-size: 2.7em !important;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.titulo__help span {
+	font-size: 0.8em !important;
+}
+
+.helptext ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.helptext ul li {
+	width: 100%;
+	line-height: 3.5em;
+	font-weight: bold;
+}
+
+.color_1 {
+	color: #111;
+	background: rgba(255,255,255,0.6);
+}
+
+.color_2 {
+	background: rgba(91,91,91,0.6);
 }
