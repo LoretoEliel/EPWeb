@@ -15,9 +15,9 @@ body {
 }
 
 .main-raised::-webkit-scrollbar-thumb {
-	background: #9C27B0 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
-    background: #9C27B0 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-    background: #9C27B0 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+	background: #368C72 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+    background: #368C72 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    background: #368C72 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
 }
 
 .volver {
@@ -30,7 +30,7 @@ body {
 }
 
 .banner_perfil {
-	background: #9C27B0 linear-gradient(
+	background: #368C72 linear-gradient(
               rgba(255,255,255,0.5),
               rgba(0,0,0,0.5)
 		);
@@ -77,7 +77,7 @@ body {
 
 .helptext {
 	width: 49%;
-	background: #9C27B0 linear-gradient(
+	background: #368C72 linear-gradient(
               rgba(255,255,255,0.5),
               rgba(0,0,0,0.5)
 		);

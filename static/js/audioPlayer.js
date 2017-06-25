@@ -77,10 +77,10 @@ function updateTrack() {
     percent = Math.round((curtime * 100) / duration);
     progress.style.width = percent + '%';
     progress.style.boxShadow = '0 0 5px rgba(255,255,255,0.4) inset';
-    progress.style.background = '#b563c3 linear-gradient(180deg, rgba(255,255,255,0.7), rgba(0,0,0,0.3))';
+    progress.style.background = '#7ECBA1 linear-gradient(180deg, rgba(255,255,255,0.7), rgba(0,0,0,0.3))';
     handler.style.left = percent + '%';
     handler.style.marginLeft = '-5px';
-    handler.style.border = '3px solid purple';
+    handler.style.border = '3px solid #466551';
 }
 
 function seekTrack(e) {
@@ -91,10 +91,10 @@ function seekTrack(e) {
     if (percent < 0) percent = 0;
     progress.style.width = percent + '%';
     progress.style.boxShadow = '0 0 5px rgba(255,255,255,0.4) inset';
-    progress.style.background = '#b563c3 linear-gradient(180deg, rgba(255,255,255,0.7), rgba(0,0,0,0.3))';
+    progress.style.background = '#7ECBA1 linear-gradient(180deg, rgba(255,255,255,0.7), rgba(0,0,0,0.3))';
     handler.style.left = percent + '%';
     handler.style.marginLeft = '-5px';
-    handler.style.border = '3px solid purple';
+    handler.style.border = '3px solid #466551';
     audio.play();
     audio.currentTime = (percent * duration) / 100;
 }
