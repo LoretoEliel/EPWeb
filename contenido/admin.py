@@ -3,9 +3,15 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 
-class AdminInfo(admin.ModelAdmin):
-	list_display = ['__unicode__', 'contenido', 'usuario', 'subida', 'actualizado']
+class AdminLibro(admin.ModelAdmin):
+	list_display = ['__unicode__',
+					'descripcion',
+					'libro',
+					'categoria',
+					'subida',
+					'actualizado',
+					'autor']
 
 	class Meta:
-		model = subir_info
-admin.site.register(subir_info, AdminInfo)		
+		model = libro
+admin.site.register(libro, AdminLibro)

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		
+
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <link rel="icon" type="image/png" href="/static/img/logo.png">
 
@@ -48,7 +48,7 @@
 						</a>
 					</div>
 					<ul class="lista-caja">
-						{% if object_list %}       
+						{% if object_list %}
                         {% for User in object_list %}
                         <a href="#" class="lista-caja__link">
 							<li class="lista-caja__user">
@@ -66,7 +66,7 @@
 					    {% for obj in chat %}
 					    {% if obj.user == request.user %}
 					    <div class="chat-caja__mensaje enviado">
-							<div class="chat-caja__nombre">   
+							<div class="chat-caja__nombre">
 								<h2>{{ user.username }}</h2>
 							</div>
 							<p class="chat-caja__content text-left right">{{ obj.mensaje }}</p>
@@ -74,7 +74,7 @@
 						</div>
 						{% else %}
 						<div class="chat-caja__mensaje recibido">
-						    <div class="chat-caja__nombre"> 
+						    <div class="chat-caja__nombre">
 							    <h2>{{ obj.user }}</h2>
 							</div>
 							<p class="chat-caja__content left">{{ obj.mensaje }}</p>
@@ -82,13 +82,13 @@
 						</div>
 						{% endif %}
 						{% empty %}
-						    <li style="text-align: center;" class="text-right list-group-item">El Foro no ha iniciado aun!</li>    
+						    <li style="text-align: center;" class="text-right list-group-item">El Foro no ha iniciado aun!</li>
 						{% endfor %}
-					</div> 
+					</div>
 					<script>
 					    var chatlist = document.getElementById('msg-list-div');
 					    chatlist.scrollTop = chatlist.scrollHeight;
-					</script>   
+					</script>
 					<!--FIN DEL CONTENEDOR-->
 
 				<!--CONTENEDOR DEL REDACTAR MENSAJE Y ENVIAR-->
@@ -151,13 +151,13 @@
 							    </ul>
 					    		<div id="btn-emoji" class="material-icons icon-emoji">mood</div>
 					    	</div>
-					        <textarea class="redactar__escribir" id="id_mensaje" name="mensaje" placeholder="Escribir mensaje..." required></textarea>                
+					        <textarea class="redactar__escribir" id="id_mensaje" name="mensaje" placeholder="Escribir mensaje..." required></textarea>
 					        <button class="redactar__btn material-icons">send</button>
 						    <input type="hidden" id="send" name="next" value="{{ next }}">
 						</div>
 					</form>
 					{% endblock %}
-				</div>	
+				</div>
 				<!--FIN DEL CONTENDOR-->
 			</div>
 		</div>
@@ -167,8 +167,8 @@
 	        <script src="/static/js/material.min.js"></script>
 	        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 	        <script src="/static/js/socket.io.js"></script>
-    	<!-- FIN DE ARCHIVOS JS --> 
-			
+    	<!-- FIN DE ARCHIVOS JS -->
+
 			<script type="text/javascript">
 				$('#btn-emoji').click(function(){
 					$('#emojis-mostrar').toggleClass('mostrar_emoji');

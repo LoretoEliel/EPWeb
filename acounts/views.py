@@ -35,22 +35,22 @@ def add_user(request):
     if request.method == 'POST':  # Si el formulario ha sido enviado...
         form = RegistroForm(request.POST)  # Un formulario vinculado a los datos POST
         if form.is_valid():  # Todas las reglas de validación pasan
- 
+
             # Procesar los datos en form.cleaned_data
             first_name = form.cleaned_data["first_name"]
             last_name = form.cleaned_data["last_name"]
             email = form.cleaned_data["email"]
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            
+
 			# En este punto, el usuario es un objeto de usuario que ya se ha guardado
             # A la base de datos. Puede seguir cambiando sus atributos
             # Si desea cambiar otros campos.
             user = User.objects.create_user(username, email, password)
             user.first_name = first_name
             user.last_name = last_name
- 
-            
+
+
 			# Guardar nuevos atributos de usuario
             user.save()
             return HttpResponseRedirect('/success/')    
@@ -58,7 +58,7 @@ def add_user(request):
             #return HttpResponseRedirect(reverse('main.html'))  # Redirect after POST
     else:
         form = RegistroForm()
-        
+
     data = {
         'form': form,
     }
@@ -90,7 +90,7 @@ def contacto_email(request):
         if form.is_valid():
             asunto = 'EPWeb - Mensaje'
             email = form.cleaned_data['email']
-            mensaje = form.cleaned_data['mensaje'] 
+            mensaje = form.cleaned_data['mensaje']
             mail = EmailMessage(asunto,
                                 email,
                                 mensaje,

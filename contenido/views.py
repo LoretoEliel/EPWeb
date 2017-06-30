@@ -24,46 +24,20 @@ from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
-	queryset_list = subir_info.objects.all()
-	Page_reques_var = "page"
-	query = request.GET.get("q")
-	if query:
-		queryset_list = queryset_list.filter(
-			Q(titulo__icontains=query)|
-			Q(subida__icontains=query)
-		).distinct()
-	paginator = Paginator(queryset_list, 50)
-	Page_reques_var = "page"
-	page = request.GET.get(Page_reques_var)
-	try:
-		queryset = paginator.page(page)
-	except PageNotAnInteger:
-		queryset = paginator.page(1)
-	except EmptyPage:
-		queryset = paginator.page(paginator.num_pages)
-
-	contexto = {
-		'object_list':queryset,
-		'titulo':'List',
-		'contenido' : 'List',
-		'subida': 'List',
-		'usuario': 'List',
-		'Page_reques_var': Page_reques_var
-	}
-	return render_to_response('index.html', contexto, context_instance=RequestContext(request))
+	return render_to_response('index.html')
 
 @login_required()
 def home(request):
-	queryset_list = reg_foto.objects.all()
-	queryset_list = subir_info.objects.all()
+	queryset_list = libro.objects.all()
 	Page_reques_var = "page"
 	query = request.GET.get("q")
 	if query:
 		queryset_list = queryset_list.filter(
 			Q(titulo__icontains=query)|
-			Q(subida__icontains=query)
+			Q(categoria__icontains=query)|
+			Q(autor__icontains=query)
 		).distinct()
-	paginator = Paginator(queryset_list, 50)
+	paginator = Paginator(queryset_list, 20)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)
 	try:
@@ -76,39 +50,42 @@ def home(request):
 	contexto = {
 		'object_list':queryset,
 		'titulo':'List',
-		'contenido' : 'List',
+		'descripcion' : 'List',
+		'libro': 'List',
+		'categoria': 'List',
 		'subida': 'List',
-		'foto': 'List',
-		'usuario': 'List',
+		'autor': 'List',
 		'Page_reques_var': Page_reques_var
 	}
 	return render_to_response('home.html', contexto, context_instance=RequestContext(request))
 
 @login_required()
-def info(request):
+def UploadLibro(request):
 	if request.method == 'POST':
-		form = InfoForm(request.POST)
+		form = libroForm(request.POST)
 		if form.is_valid():
-			newdoc = subir_info(titulo = request.POST['titulo'],
-        						usuario = request.user,
-        						contenido = request.POST['contenido'])
+			newdoc = libro(titulo = request.POST['titulo'],
+        				   descripcion = request.POST['descripcion'],
+						   libro = request.POST['libro'],
+						   categoria = request.POST['categoria'],
+						   autor = request.user)
 			newdoc.save(form)
-			return HttpResponseRedirect('/info_guardada/')
+			return HttpResponseRedirect('/libro_guardado/')
 	else:
-		form = InfoForm()
+		form = libroForm()
 
 	contexto = {
     	'form': form,
     }
-    	return render(request, 'agregar_info.html', contexto)
+    	return render(request, 'agregar_libro.html', contexto)
 
 @login_required()
-def info_guardada(request):
-	return render_to_response("info_guardada.html")    	
+def libro_guardado(request):
+	return render_to_response("libro_guardado.html")
 
 @login_required()
-def eliminar_info(request, pk):
+def eliminar_libro(request, pk):
 
-	info = get_object_or_404(subir_info, pk=pk)
+	info = get_object_or_404(libro, pk=pk)
 	info.delete()
-	return redirect('Home')    	
+	return redirect('Home')

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'acounts',
     'contenido',
     'foro',
-    'CMPlayList',
     #FIN DE APPS
 ]
 
@@ -80,14 +79,14 @@ WSGI_APPLICATION = 'ElProgramadorWeb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
- 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'de6qkuk313qhhl',
-        'USER': 'aocdsenzvoxxfl',
-        'PASSWORD': 'dc1ca28b568b3685a990b38fd800b190dca51ca83fe616f1559ab1231cd80400',
-        'HOST': 'ec2-107-21-99-176.compute-1.amazonaws.com',
+        'NAME': 'CoffeInt',
+        'USER': 'postgres',
+        'PASSWORD': 'popoleaxD',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }
@@ -142,7 +141,7 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = "/home/"
 
 # SI LA CLAVE ES INCORRECTA REDIRIGE AL LOGIN.
-LOGIN_URL = '/login/'
+LOGIN_URL = '/'
 
 #Y TERMINA LA SECCION POR COMPLETA.
 LOGOUT_URL = '/logout/'

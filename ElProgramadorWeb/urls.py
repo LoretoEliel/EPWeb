@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
-from django.conf import settings 
+from django.conf import settings
 from django.contrib.auth.views import login, logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 from django.contrib.auth.decorators import login_required
 
@@ -27,12 +27,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     #ESTO ES EL SISTEMA LOGIN
-    url(r'^login/$', login, 
-        {'template_name': 'login.html'}, 
+    url(r'^$', login,
+        {'template_name': 'index.html'},
         name="login"),
-    url(r'^logout/$', logout, 
+    url(r'^logout/$', logout,
         {'template_name': 'logout.html'}),
-    
+
     #ESTO ES PARA RECUPERAR MI CUENTA CUANDO OLVIDO LA CLAVE
     #!IMPORTANT --------------------------------------------
     url(r'^reset/password_reset', password_reset,
@@ -43,7 +43,7 @@ urlpatterns = [
         {'template_name':'reset_password/password_reset_done.html'},
         name="password_reset_done"),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', password_reset_confirm,
-        {'template_name':'reset_password/password_reset_confirm.html'}, 
+        {'template_name':'reset_password/password_reset_confirm.html'},
         name="password_reset_confirm"),
     url(r'^reset/completado', password_reset_complete,
         {'template_name':'reset_password/password_reset_complete.html'},
@@ -53,9 +53,6 @@ urlpatterns = [
     #NUEVOS USUARIOS
     url(r'^add_user/$', 'acounts.views.add_user', name='add_user'),
     url(r'^success/$', 'acounts.views.register_success'),
-
-    #FRONT INICIAL
-    url(r'^$', 'contenido.views.index', name="Index"),
 
     #HOME O DENTRO DEL SISTEMA
     url(r'^home/$', 'contenido.views.home', name="Home"),
@@ -67,17 +64,13 @@ urlpatterns = [
         url(r'^email_envidado/$', 'acounts.views.contacto_exitoso', name="Contacto_Exitoso"),
 
     #ESTO ES PARA AGREGAR CONTENIDO AL BLOG
-    url(r'^agregar_info/$', 'contenido.views.info', name="Informacion"),
-        url(r'^info_guardada/$', 'contenido.views.info_guardada'),
-        url(r'^info/(?P<pk>\d+)/eliminar/$', views.eliminar_info, name='eliminar_info'),
+    url(r'^agregar_libro/$', 'contenido.views.UploadLibro', name="Libros"),
+        url(r'^libro_guardado/$', 'contenido.views.libro_guardado', name="Libro_Guardado"),
+        url(r'^info/(?P<pk>\d+)/eliminar/$', views.eliminar_libro, name='eliminar_libro'),
 
     #FORO DEL SITIO
     url(r'^foro/$', 'foro.views.chatbox', name='messenger'),
     url(r'^post/$', 'foro.views.Post', name='post'),
     url(r'^messages/$', 'foro.views.Messages', name='messages'),
-
-    #REPRODUCTOR DE MUSICA
-    url(r'^Index_musica/$', 'CMPlayList.views.index_music', name="Index_Music"),
-        url(r'^agregar_musica/$', 'CMPlayList.views.Agregar_Musica', name="Add_musica"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

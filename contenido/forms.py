@@ -5,14 +5,14 @@ from django import forms
 from .models import *
 from django.contrib.auth.models import User
 
-class InfoForm(forms.Form):
+class libroForm(forms.Form):
 
 	css_error_class = 'has-error'
-	
-	class Meta:
-		model = subir_info
 
-		fields = ('titulo', 'contenido')
+	class Meta:
+		model = libro
+
+		fields = ('titulo', 'descripcion', 'libro', 'categoria')
 
 		def __init__(self, *args, **kwargs):
 			super().__init__(*args, **kwargs)

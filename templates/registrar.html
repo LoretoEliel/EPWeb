@@ -1,239 +1,153 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <link rel="icon" type="image/png" href="/static/img/logo.png">
-        
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/demo.css' %}">
-        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/icon.css' %}">
-        <link rel="stylesheet" href="{% static 'css/material-kit.css' %}">
 
-        <title>El Programador Web</title>
-        
-        <style type="text/css">
-            .social {
-                list-style: none !important;
-                display: flex;
+        <!-- FUENTES Y ICONS -->
+            <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!-- FIN DE FUENTES Y ICONS -->
+
+        <!-- ARCHIVOS CSS -->
+            <link rel="stylesheet" href="/static/css/icon.css">
+            <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+            <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+            <link href="/static/css/material-kit.css" rel="stylesheet">
+            <link href="/static/css/demo.css" rel="stylesheet">
+        <!-- FIN DE ARCHIVOS CSS -->
+        <style type="text/css" media="screen">
+            body {
+                overflow: hidden;
             }
-            
-            @media (max-width:1000px) {
-                .nombre {
-                    display: none !important;
-                }
-                
-                .social {
-                top: 15px;
-                left: 40px;
+
+            .caja-login {
+              overflow-y: scroll;
+              overflow-x: hidden;
             }
-            }
-            
-            @media (max-width:767px) {
-                .nombre {
-                    display: block !important;
-                }
-                
-                .social {
-                    position: static;
-                    justify-content: center;
-                    display: flex !important;
-                }
-            }
+
+            .caja-login::-webkit-scrollbar {
+              width: 10px;
+              background: #ddd; }
+            .caja-login::-webkit-scrollbar-thumb {
+              background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+              background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+              background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
         </style>
-    </head>
-    
-    <body class="index-page">
-    {% block content %}
-        <!-- MENU -->
-            <!--<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="#">
-                            <div class="logo-container">
-                                <div class="logo">
-                                    <img src="/static/img/logo.png" alt="Creative Tim Logo" rel="tooltip" title="<b> El Programador Web </ b> fue diseñado y codificado con cuidado por <b> Eliyenthon Youtuber</ b>" data-placement="bottom" data-html="true">
-                                </div>
-                                <div class="brand nombre" style="margin-top: 17px;">
-                                    ElProgramadorWeb
-                                </div>
-                            </div>
-                        </a>
-                    </div>
 
-                    <div class="collapse navbar-collapse" id="navigation-index">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="/">
-                                    <i class="material-icons">home</i> Inicio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/login/">
-                                    <i class="material-icons">account_circle</i> Iniciar Sesión
-                                </a>
-                            </li>
-                            <ul class="social">
+	<title>Café Intelectual</title>
+</head>
+<body>
+    <div class="main main-raised caja-login" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; max-width: 95%; min-height: 450px; max-height: 450px;">
+    	<div class="row">
+            <div class="container col-xs-10 col-xs-offset-1 col-ms-10 col-ms-offset-1 col-md-10 col-md-offset-1" style="position: relative; margin-top: 2em;">
+                {% block content %}
+                <h2 class="text-center">Café Intelectual <small>regístro de usuario</small></h2>
+                <div style="border: 1px solid rgba(0,0,0,0.2);">
+                  <form style="box-shadow: 2px 0 rgba(0,0,0,0.2);" class="form form-register col-md-6 col-lg-6" id="contenedor" method="post" action="{% url 'add_user' %}" onsubmit="return validar();">
+                  {% csrf_token %}
+                      <div class="content">
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_first_name">Nombre</label>
+                              <input maxlength="30" id="id_first_name" name="first_name" type="text" class="form-control" required autocomplete="off">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_last_name">Apellido</label>
+                              <input maxlength="30" id="id_last_name" name="last_name" type="text" class="form-control" required autocomplete="off">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_email">Correo tipo Gmail Ejemplo@gmail.com</label>
+                              <input maxlength="254" id="id_email" name="email" type="email" class="form-control" required autocomplete="off">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_username">Nombre de usuario</label>
+                              <input maxlength="30" id="id_username" name="username" type="text" class="form-control" required autocomplete="off">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_password">Contraseña</label>
+                              <input maxlength="20" id="id_password" name="password" type="password" class="form-control" required autocomplete="off">
+                          </div>
+                      </div>
+                      {% if form.errors %}
+                          <div class="alert alert-danger">
+                              <div class="container-fluid">
+                                   <div class="alert-icon">
+                                      <i class="material-icons">error_outline</i>
+                                  </div>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                  </button>
+                                  <b>Alerta de Error:</b>
+                                  <p style="padding-left: 2.8em;" >Por favor, ingrese el nombre de usuario y la clave correctos para obtener cuenta de personal. Observe que ambos campos pueden ser sensibles a mayúsculas.</p>
+                              </div>
+                          </div>
+                      {% endif %}
+                      <div class="footer text-center">
+                          <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size:2em;">send</i></button>
+                          <input type="hidden" name="next" value="{{ next }}">
+                          <a
+                          style="text-decoration: none; color: red;" href="/"><i class="material-icons" style="font-size:2em; width: 110px;">close</i></a>
+                      </div>
+                      <hr style="margin: 0;">
+                      <div style="text-align: center; width: 100%;">
+                          <p>¿Ya tienes cuenta? <a style="line-height: 2em;" href="/">¡Logueate!</a></p>
+                      </div>
+                  </form>
+                  <div class="col-md-6 col-lg-6">
+                      <h3 style="text-align: center; text-transform: uppercase;">Crear cuenta en MEGA.nz</h3>
+                      <hr>
+                      <p style="text-align: justify;">Es necesesario crear la cuenta para un mejor flujo del contenido, si ya tienes una cuenta solo prosigue con el inicio de sesión de Café intelectual, de lo contrario crea tu cuenta</p>
+                      <a href="https://mega.nz/register" target="_blank">
+                        <div style="width: 100%; height: 265px; position: relative;">
+                          <img style="position: absolute;" src="/static/img/mega.png" alt="mega" width="100%" height="215px">
+                        </div>
+                      </a>
+                  </div>
+                </div>
+                <br><br>
+                <footer class="footer col-xs-12 col-xs-offset-0 col-ms-12 col-ms-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
+                    <div class="container" style="margin-top: 0.8em; margin-left: -7.5em;">
+                        <nav class="pull-left">
+                            <ul>
                                 <li>
-                                    <a rel="tooltip" title="Síganos en Twitter" data-placement="bottom" href="#" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-                                        <i class="fa fa-twitter"></i>
+                                    <a href="#">
+                                        CaféIntelectual
                                     </a>
                                 </li>
                                 <li>
-                                    <a rel="tooltip" title="Regálame un me gusta en facebook" data-placement="bottom" href="https://www.facebook.com/Eliyenthon/" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a rel="tooltip" title="Suscríbete a mi Canal" data-placement="bottom" href="#" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-                                        <i class="fa fa-youtube"></i>
+                                    <a href="#">
+                                       Sobre Nosotros
                                     </a>
                                 </li>
                             </ul>
-                        </ul>
-                    </div>
-                </div>
-            </nav>-->
-        <!-- FIN DEL MENU -->
-        <!-- CONTENEDOR -->
-        <style type="text/css">
-            .header-filter:after{
-                background: rgba(47, 109, 142, 0.64) !important;
-                background: linear-gradient(45deg,  rgba(47, 127, 142, 0.88) 0%, rgba(46, 137, 185, 0.45) 100%);
-                background: -moz-linear-gradient(135deg,  rgba(47, 116, 142, 0.88) 0%, rgba(46, 110, 185, 0.45) 100%);
-                background: -webkit-linear-gradient(135deg,  rgba(47, 116, 142, 0.88) 0%, rgba(46, 148, 185, 0.45) 100%);
-            }
-        </style>
-        <div class="wrapper">
-            <div class="header header-filter" style="background-image: url('/static/img/bg3.jpeg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="brand">
-                                <h2>ElProgramadorWeb.</h2>
-                                <h4>Todo lo que debes saber sobre un programador web.</h4>
-                            </div>
+                        </nav>
+                        <div class="copyright pull-right">
+                            &copy; 2017, Hecho con <i class="material-icons">favorite</i> Por VEnv para una mejor web.
                         </div>
                     </div>
-                </div>
+                </footer>
+                {% endblock %}
             </div>
-            
-                <div class="main main-raised" style="background: #f3f3f3;">
-                <br><br>
-                    <div class="section">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="card card-signup">
-                                    <form class="form form-register" id="contenedor" method="post" action="{% url 'add_user' %}" onsubmit="return validar();">
-                                    {% csrf_token %}
-                                        <div class="header header-primary text-center">
-                                            <h4>Nuevos Usuarios</h4>
-                                        </div>
-                                        <div class="content">
-                                        <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">bookmark</i>
-                                                </span>
-                                                <input maxlength="30" id="id_first_name" name="first_name" type="text" class="form-control" placeholder="Nombre..." required autocomplete="off">
-                                            </div>
-                                        <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">bookmark</i>
-                                                </span>
-                                                <input maxlength="30" id="id_last_name" name="last_name" type="text" placeholder="Apellido..." class="form-control" required autocomplete="off">
-                                            </div>
-                                        <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">contact_mail</i>
-                                                </span>
-                                                <input maxlength="254" id="id_email" name="email" type="email" placeholder="Ejemplo@email.com..." class="form-control" required autocomplete="off">
-                                            </div>
-                                        <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">wc</i>
-                                                </span>
-                                                <input maxlength="30" id="id_username" name="username" type="text" placeholder="Nombre de Usuario..." class="form-control" required autocomplete="off">
-                                            </div>
-                                        <br>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">vpn_key</i>
-                                                </span>
-                                                <input maxlength="20" id="id_password" name="password" type="password" placeholder="Contraseña..." class="form-control" required autocomplete="off">
-                                            </div>
-                                        </div>
-                                        <div class="footer text-center">
-                                            <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size:2em;">send</i></button>
-                                            <input type="hidden" name="next" value="{{ next }}">
-                                            <p class="form-link animated rubberBand">¿Ya tienes una cuenta? <a href="/login/">|Ingresa Aqui|</a><a href="/">          |Volver|</a></p>
-                                        </div>
-                                        {% if form.errors %}<p>{{ form.errors }}</p>{% endif %}
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <footer class="footer">
-                <div class="container">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="/">
-                                    ElProgramadorWeb
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                   Sobre Nosotros
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                   Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright pull-right">
-                        &copy; 2017, Hecho con <i class="material-icons">favorite</i> Por VEnv para una mejor web.
-                    </div>
-                </div>
-            </footer>
         </div>
-    {% endblock %}
-    </body>
-    
-    <!-- ARCHIVOS JS -->
-        <script src="static/js/jquery.min.js" type="text/javascript"></script>
-        <script src="static/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="static/js/material.min.js"></script>
-    <!-- FIN DE ARCHIVOS JS --> 
-    
+    </div>
+
+	<!-- ARCHIVOS JS -->
+        <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+        <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/static/js/material.min.js"></script>
+    <!-- FIN DE ARCHIVOS JS -->
+
     <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	    <script src="static/js/nouislider.min.js" type="text/javascript"></script>
+	    <script src="/static/js/nouislider.min.js" type="text/javascript"></script>
 
 	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-	    <script src="static/js/bootstrap-datepicker.js" type="text/javascript"></script>
+	    <script src="/static/js/bootstrap-datepicker.js" type="text/javascript"></script>
 
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-	    <script src="static/js/material-kit.js" type="text/javascript"></script>
+	    <script src="/static/js/material-kit.js" type="text/javascript"></script>
 
         <script type="text/javascript">
 
@@ -250,5 +164,6 @@
 
             });
         </script>
-    <!-- FIN DE SLIDER -->      
+    <!-- FIN DE SLIDER -->
+</body>
 </html>
