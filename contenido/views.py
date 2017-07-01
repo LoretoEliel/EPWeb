@@ -28,14 +28,14 @@ def index(request):
 
 @login_required()
 def home(request):
+	queryset_list = User.objects.all()
 	queryset_list = libro.objects.all()
 	Page_reques_var = "page"
 	query = request.GET.get("q")
 	if query:
 		queryset_list = queryset_list.filter(
 			Q(titulo__icontains=query)|
-			Q(categoria__icontains=query)|
-			Q(autor__icontains=query)
+			Q(categoria__icontains=query)
 		).distinct()
 	paginator = Paginator(queryset_list, 20)
 	Page_reques_var = "page"

@@ -122,7 +122,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/agregar_info/">
+                                <a href="/agregar_libro/">
                                     <i class="material-icons">note_add</i> Agregar Información
                                 </a>
                             </li>
@@ -197,7 +197,7 @@
                                                 </li>
                                             </ul>
                                             {% endif %}
-                                            <h1 style="font-weight: bold;">{{ libro.titulo }} <small>- {{ libro.categoria }}</small></h1>
+                                            <h2 style="font-weight: bold;">{{ libro.titulo }} <small>- {{ libro.categoria }}</small></h2>
                                             <p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">schedule</i> {{ libro.subida }}</p>
                                         </div>
 
@@ -205,7 +205,7 @@
                                             <hr>
                                             <blockquote style="border-left: none;">
                                                 <p>{{ libro.descripcion }}</p>
-                                                <a target="_blank" href="{{ libro.libro }}"><span class="material-icons">picture_as_pdf</span> {{ libro.libro }}</a>
+                                                <a target="_blank" href="{{ libro.libro }}"><span class="material-icons">picture_as_pdf</span> Descargar libro</a>
                                                 <footer>{{ libro.autor}}</footer>
                                             </blockquote>
                                         </div>

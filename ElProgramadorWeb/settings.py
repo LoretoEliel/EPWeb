@@ -82,12 +82,14 @@ WSGI_APPLICATION = 'ElProgramadorWeb.wsgi.application'
 
 DATABASES = {
     'default': {
+        #esto es para resetear postgresql en kali linux
+        #para remontar el servidor
+        #/etc/init.d/postgresql restart
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CoffeInt',
         'USER': 'postgres',
         'PASSWORD': 'popoleaxD',
         'HOST': 'localhost',
-        'PORT': 5432,
     }
 }
 

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <link rel="icon" type="image/png" href="/static/img/logo.png">
 
         <!-- FUENTES Y ICONS -->
@@ -18,276 +19,177 @@
             <link href="/static/css/material-kit.css" rel="stylesheet">
             <link href="/static/css/demo.css" rel="stylesheet">
         <!-- FIN DE ARCHIVOS CSS -->
-        <title>El Programador Web</title>
+        <style type="text/css" media="screen">
+            body {
+                overflow: hidden;
+            }
 
-        <script type="text/javascript">
-            function nobackbutton(){
-                window.location.hash="no-back-button";
-                window.location.hash="Again-No-back-button" //chrome
-                window.onhashchange=function(){window.location.hash="no-back-button";}
-            } 
-        </script>
-        
-        <style type="text/css">
-            .social {
-                list-style: none !important;
-                display: flex;
+            .caja-login {
+              overflow-y: scroll;
+              overflow-x: hidden;
             }
-            
-            @media (max-width:1000px) {
-                .nombre {
-                    display: none !important;
-                }
-                
-                .social {
-                top: 15px;
-                left: 40px;
+
+            .caja-login::-webkit-scrollbar {
+              width: 10px;
+              background: #ddd;
             }
+            .caja-login::-webkit-scrollbar-thumb {
+              background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+              background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+              background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
             }
-            
-            @media (max-width:767px) {
-                .nombre {
-                    display: block !important;
-                }
-                
-                .social {
-                    position: static;
-                    justify-content: center;
-                    display: flex !important;
-                }
+
+            .textarea_scroll {
+              overflow-y: auto;
+            }
+
+            .textarea_scroll::-webkit-scrollbar {
+              width: 8px;
+              background: #ddd;
+            }
+            .textarea_scroll::-webkit-scrollbar-thumb {
+              background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+              background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+              background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+            }
+
+            .select__scroll {
+              overflow-y: scroll !important;
+            }
+
+            .select__scroll::-webkit-scrollbar {
+              width: 8px !important;
+              background: #ddd !important;
+            }
+            .select__scroll::-webkit-scrollbar-thumb {
+              background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)))!important;
+              background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5))!important;
+              background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5))!important;
             }
         </style>
-    </head>
-    
-    <body class="index-page" onload="nobackbutton()">
-        <!-- MENU -->
-            <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="#">
-                            <div class="logo-container">
-                                <div class="logo" style="width: 70px; height: 70px;">
-                                {% if user.is_authenticated %}
-                                {% if user.is_superuser %}
-                                    <img src="/media/foto_perfil/EliDjangoDev.jpg" alt="Creative Tim Logo" rel="tooltip" title="<b> El Programador Web </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">
-                                {% else %}
-                                    <img src="/static/img/logo.png" alt="Creative Tim Logo" rel="tooltip" title="<b> El Programador Web </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">   
-                                {% endif %}
-                                </div>
-                                <style type="text/css">
-                                    .nombre_user {
-                                        color: #fff;
-                                    }
 
-                                    .nombre_user a {
-                                        text-decoration: none !important;
-                                    }
-
-                                    .nombre_user a:hover {
-                                        text-decoration: none !important;
-                                    }
-
-                                    .perfil {
-                                        text-decoration: none !important;
-                                    }
-
-                                    .perfil p {
-                                        color: #fff;
-                                    }
-
-                                    .perfil p:hover {
-                                        text-decoration: underline !important;
-                                    }
-                                </style>
-                                <div class="brand nombre" style="margin-top: 17px;">
-                                    <p class="nombre_user">{{ user.username }}</p>
-                                    <a href="/mi_perfil/" class="perfil"><p>mi perfil</p></a>
-                                {% endif %}
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="navigation-index">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="/home/">
-                                    <i class="material-icons">devices</i> Inicio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/agregar_info/">
-                                    <i class="material-icons">note_add</i> Agregar Información
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/foro/">
-                                    <i class="material-icons">forum</i> Chat
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Index_musica/">
-                                    <i class="material-icons">music_note</i> CMPlayList
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-toggle="modal" data-target="#Salir">
-                                    <i class="material-icons">lock_outline</i> Salir
-                                </a>
-                            </li>
-                            <ul class="social">
+	<title>Café Intelectual</title>
+</head>
+<body>
+    <div class="main main-raised caja-login" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; max-width: 95%; min-height: 450px; max-height: 450px;">
+    	<div class="row">
+            <div class="container col-xs-10 col-xs-offset-1 col-ms-10 col-ms-offset-1 col-md-10 col-md-offset-1" style="position: relative; margin-top: 2em;">
+                {% block content %}
+                <h2 class="text-center">Café Intelectual <small>ingresé sus libros</small></h2>
+                <div style="border: 1px solid rgba(0,0,0,0.2);">
+                  <form style="box-shadow: 2px 0 rgba(0,0,0,0.2);" class="form form-register col-md-6 col-lg-6" id="contenedor" method="post" action="{% url 'Libros' %}" onsubmit="return validar();">
+                  {% csrf_token %}
+                      <div class="content">
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_titulo">Titulo del libro</label>
+                              <input maxlength="150" id="id_titulo" name="titulo" type="text" class="form-control" required autocomplete="off">
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_categoria">Categoría</label>
+                              <select list="categoria_lista" maxlength="150" id="id_categoria" name="categoria" type="text" class="form-control select__scroll" required autocomplete="off">
+                                <option value=""></option>
+                                <option value="Antiguedades y Coleccionables">Antiguedades y Coleccionables</option>
+                                <option value="Arquitectura">Arquitectura</option>
+                                <option value="Arte">Arte</option>
+                                <option value="Biografía y Autobiografía">Biografía y Autobiografía</option>
+                                <option value="Cuerpo, Mente y Espíritu">Cuerpo, Mente y Espíritu</option>
+                                <option value="Negocios y Economia">Negocios y Economia</option>
+                                <option value="Calendarios">Calendarios</option>
+                                <option value="Ficción para Niños">Ficción para Niños</option>
+                                <option value="Niños y Jóvenes">Niños y Jóvenes</option>
+                                <option value="Computación e Internet">Computación e Internet</option>
+                                <option value="Cocina, Comida y Vinos">Cocina, Comida y Vinos</option>
+                                <option value="Manualidades y Hobbies">Manualidades y Hobbies</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Educación">Educación</option>
+                                <option value="Familia y Relaciones">Familia y Relaciones</option>
+                                <option value="Ficción">Ficción</option>
+                                <option value="Estudio de Lenguas Extranjeras">Estudio de Lenguas Extranjeras</option>
+                                <option value="Juegos">Juegos</option>
+                                <option value="Jardinería">Jardinería</option>
+                                <option value="Salud y Bienestar">Salud y Bienestar</option>
+                                <option value="Historia y Geografía">Historia y Geografía</option>
+                                <option value="Casa y Hogar">Casa y Hogar</option>
+                                <option value="Humor">Humor</option>
+                                <option value="Lengua y Literatura">Lengua y Literatura</option>
+                                <option value="Leyes">Leyes</option>
+                                <option value="Colecciones Literarias">Colecciones Literarias</option>
+                                <option value="Crítica Literaria">Crítica Literaria</option>
+                              </select>
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_descripcion">De una breve descripción del libro</label>
+                              <textarea maxlength="5000" id="id_descripcion" name="descripcion" type="text" class="form-control textarea_scroll" required autocomplete="off"></textarea>
+                          </div>
+                          <div class="form-group label-floating">
+                              <label class="control-label" for="id_libro">Url del libro proporcionada por Mega.nz</label>
+                              <input maxlength="2000" id="id_libro" name="libro" type="url" class="form-control" required autocomplete="off">
+                          </div>
+                      </div>
+                      {% if form.errors %}
+                          <div class="alert alert-danger">
+                              <div class="container-fluid">
+                                   <div class="alert-icon">
+                                      <i class="material-icons">error_outline</i>
+                                  </div>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                  </button>
+                                  <b>Alerta de Error:</b>
+                                  <p style="padding-left: 2.8em;" >Por favor, ingrese el nombre de usuario y la clave correctos para obtener cuenta de personal. Observe que ambos campos pueden ser sensibles a mayúsculas.</p>
+                              </div>
+                          </div>
+                      {% endif %}
+                      <div class="footer text-center">
+                          <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size:2em;">send</i></button>
+                          <input type="hidden" name="next" value="{{ next }}">
+                          <a
+                          style="text-decoration: none; color: red;" href="/agregar_libro/"><i class="material-icons" style="font-size:2em; width: 110px;">close</i></a>
+                      </div>
+                  </form>
+                  <div class="col-md-6 col-lg-6">
+                      <h3 style="text-align: center; text-transform: uppercase;">Sube el libro a MEGA.nz</h3>
+                      <hr>
+                      <a href="https://mega.nz" target="_blank">
+                        <div style="width: 100%; height: 310px; position: relative;">
+                          <img style="position: absolute;" src="/static/img/mega_subir.png" alt="mega" width="100%" height="310px">
+                        </div>
+                      </a>
+                  </div>
+                </div>
+                <br><br>
+                <footer class="footer col-xs-12 col-xs-offset-0 col-ms-12 col-ms-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
+                    <div class="container" style="margin-top: 0.8em; margin-left: -7.5em;">
+                        <nav class="pull-left">
+                            <ul>
                                 <li>
-                                    <a rel="tooltip" title="Síganos en Twitter" data-placement="bottom" href="https://twitter.com/VEnviroment" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-                                        <i class="fa fa-twitter"></i>
+                                    <a href="#">
+                                        CaféIntelectual
                                     </a>
                                 </li>
                                 <li>
-                                    <a rel="tooltip" title="Regalame un me gusta en facebook" data-placement="bottom" href="https://www.facebook.com/Eliyenthon/" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a rel="tooltip" title="Suscríbete a mi Canal" data-placement="bottom" href="https://www.youtube.com/channel/UCb9ZS5SioGNAwWOEqA9_Ymw" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-                                        <i class="fa fa-youtube"></i>
+                                    <a href="#">
+                                       Sobre Nosotros
                                     </a>
                                 </li>
                             </ul>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        <!-- FIN DEL MENU -->
-        
-        <!-- CONTENEDOR -->
-        <style type="text/css">
-            .header-filter:after{
-                background: rgba(47, 109, 142, 0.64) !important;
-                background: linear-gradient(45deg,  rgba(47, 127, 142, 0.88) 0%, rgba(46, 137, 185, 0.45) 100%);
-                background: -moz-linear-gradient(135deg,  rgba(47, 116, 142, 0.88) 0%, rgba(46, 110, 185, 0.45) 100%);
-                background: -webkit-linear-gradient(135deg,  rgba(47, 116, 142, 0.88) 0%, rgba(46, 148, 185, 0.45) 100%);
-            }
-        </style>
-            <div class="wrapper">
-                <div class="header header-filter" style="background-image: url('/static/img/bg3.jpeg');">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="brand">
-                                    <h2>ElProgramadorWeb.</h2>
-                                    <h4>Todo lo que debes saber sobre un programador web.</h4>
-                                </div>
-                            </div>
+                        </nav>
+                        <div class="copyright pull-right">
+                            &copy; 2017, Hecho con <i class="material-icons">favorite</i> Por VEnv para una mejor web.
                         </div>
                     </div>
-                </div>
-                
-                <div class="main main-raised">
-                    <div class="section">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                                <div class="card card-signup">
-                                {% block content %}
-                                {% if user.is_authenticated %}
-                                    <form class="form form-register" method="POST" action="{% url 'Informacion' %}" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                        <div class="header header-primary text-center">
-                                            <h4>Agregar Información</h4>
-                                        </div>
-                                        <div class="content">
-                                        <br>
-                                            <!--<div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">add_a_photo</i>
-                                                </span>
-                                                <input style="margin-top: 14px;" id="id_imagen" name="imagen" type="file" placeholder="Titulo de la información..." required>
-                                            </div>-->
-
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">spellcheck</i>
-                                                </span>
-                                                <input maxlength="150" id="id_titulo" name="titulo" type="text" class="form-control" placeholder="Titulo de la información..." required>
-                                            </div>
-                                            
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">content_paste</i>
-                                                </span>
-                                                <textarea style="min-height: 180px; max-height: 180px;" maxlength="2000" id="id_contenido" name="contenido" type="text" class="form-control" placeholder="Contenido..." required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="footer text-center">
-                                            <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size: 40px;">send</i></button>
-                                            <input type="hidden" name="next" value="{{ next }}">
-                                        </div>    
-                                    </form>
-                                {% endif %}    
-                                {% endblock %}    
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            
-            <footer class="footer">
-                <div class="container">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    ElProgramadorWeb
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                   Sobre Nosotros
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                   Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright pull-right">
-                        &copy; 2017, Hecho con <i class="material-icons">favorite</i> Por VEnv para una mejor web.
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </body>
-
-    <div class="modal fade" id="Salir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background: #f3f3f3;">
-                <div class="modal-body">
-                    <center>
-                        <i class="material-icons" style="font-size: 10em; color: #368C72;">add_alert</i>
-                        <h1>¿Está Seguro...</h1>
-                        <p>Que desea salir y cerrar la sesión actual?</p>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <center><a href="/home/"><button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">No, cancelar</button></a>
-                    <a href="/logout/"><button type="button" class="btn btn-default btn-simple">Si, salir</button></a></center>
-                </div>
+                </footer>
+                {% endblock %}
             </div>
         </div>
     </div>
-    
-    <!-- ARCHIVOS JS -->
+
+	<!-- ARCHIVOS JS -->
         <script src="/static/js/jquery.min.js" type="text/javascript"></script>
         <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/static/js/material.min.js"></script>
-    <!-- FIN DE ARCHIVOS JS --> 
-    
+    <!-- FIN DE ARCHIVOS JS -->
+
     <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 	    <script src="/static/js/nouislider.min.js" type="text/javascript"></script>
 
@@ -312,5 +214,6 @@
 
             });
         </script>
-    <!-- FIN DE SLIDER -->      
+    <!-- FIN DE SLIDER -->
+</body>
 </html>
