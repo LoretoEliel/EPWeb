@@ -1832,9 +1832,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .pagination.pagination-info > .active > span,
 .pagination.pagination-info > .active > span:focus,
 .pagination.pagination-info > .active > span:hover {
-  background-color: #03a9f4;
-  border-color: #03a9f4;
-  box-shadow: 0 4px 5px 0 rgba(3, 169, 244, 0.14), 0 1px 10px 0 rgba(3, 169, 244, 0.12), 0 2px 4px -1px rgba(3, 169, 244, 0.2);
+  background-color: #A55540;
+  border-color: #A55540;
+  box-shadow: 0 4px 5px 0 rgba(244, 111, 2, 0.14), 0 1px 10px 0 rgba(244, 133, 2, 0.12), 0 2px 4px -1px rgba(244, 140, 2, 0.2);
 }
 .pagination.pagination-success > .active > a, .pagination.pagination-success > .active > a:focus, .pagination.pagination-success > .active > a:hover,
 .pagination.pagination-success > .active > span,
