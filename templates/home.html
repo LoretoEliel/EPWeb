@@ -18,7 +18,7 @@
             <link href="/static/css/material-kit.css" rel="stylesheet">
             <link href="/static/css/demo.css" rel="stylesheet">
         <!-- FIN DE ARCHIVOS CSS -->
-        <title>El Programador Web</title>
+        <title>Café Intelectual</title>
 
         <script type="text/javascript">
             function nobackbutton(){
@@ -75,9 +75,9 @@
                                 <div class="logo" style="width: 70px; height: 70px;">
                                 {% if user.is_authenticated %}
                                 {% if user.is_superuser %}
-                                    <img src="/media/foto_perfil/EliDjangoDev.jpg" alt="Creative Tim Logo" rel="tooltip" title="<b> El Programador Web </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">
+                                    <img src="/media/foto_perfil/EliDjangoDev.jpg" alt="Creative Tim Logo" rel="tooltip" title="<b> Café Intelectual </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">
                                 {% else %}
-                                    <img src="/static/img/logo.png" alt="Creative Tim Logo" rel="tooltip" title="<b> El Programador Web </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">
+                                    <img src="/static/img/default-avatar.png" alt="foto_perfil" rel="tooltip" title="<b> Café Intelectual </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">
                                 {% endif %}
                                 </div>
                                 <style type="text/css">
@@ -169,8 +169,8 @@
                         <form action="" method="GET">
                             <br><br>
                             <div class="col-md-8 col-md-offset-2" style="margin-top: -10%;">
-                                <input style="text-align: center;" class="form-control col-md-12" type="text"  name='q' placeholder='titulo ó fecha' value='{{ request.GET.q }}' autocomplete="off">
-                                <button class="btn btn-primary col-md-12"><i class="material-icons" style="font-size: 5em;">youtube_searched_for</i></button>
+                                <input style="text-align: center;" class="form-control col-xs-12 col-ms-12 col-md-12 col-lg-12" type="text"  name='q' placeholder='titulo ó Categoría' value='{{ request.GET.q }}' autocomplete="off">
+                                <button class="btn btn-primary col-xs-12 col-ms-12 col-md-12 col-lg-12"><i class="material-icons" style="font-size: 5em;">youtube_searched_for</i></button>
                             </div>
                             {% if object_list %}
                             {% for libro in object_list %}
@@ -228,17 +228,12 @@
                         <ul>
                             <li>
                                 <a href="#">
-                                    ElProgramadorWeb
+                                    Caféintelectual
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                    Sobre Nosotros
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                   Blog
                                 </a>
                             </li>
                         </ul>
@@ -255,7 +250,7 @@
             <div class="modal-content" style="background: #f3f3f3;">
                 <div class="modal-body">
                     <center>
-                        <i class="material-icons" style="font-size: 10em; color: #368C72;">add_alert</i>
+                        <i class="material-icons" style="font-size: 10em; color: #A55540;">add_alert</i>
                         <h1>¿Está Seguro...</h1>
                         <p>Que desea salir y cerrar la sesión actual?</p>
                     </center>
@@ -273,7 +268,7 @@
             <div class="modal-content" style="background: #f3f3f3;">
                 <div class="modal-body">
                     <center>
-                        <i class="material-icons" style="font-size: 10em; color: #9c3bb4;">thumb_up</i>
+                        <i class="material-icons" style="font-size: 10em; color: #A55540;">thumb_up</i>
                         {% if user.is_authenticated %}
                         <h3>Gracias {{ user.username }}...</h3>
                         <p>En este sitio Web tienes la opción de buscar contenido de tu interés en términos de informática y tecnología. Ademas, podrás transcribir y publicar tus propios contenidos informativos de temas relacionados con lo antes mencionado. Es importante resaltar, que tendrás acceso a un chat en el que podrás comunicarte con los demás usuarios en tiempo real, a la vez que puedes agregar, buscar, compartir y escuchar tu música favorita dentro del mismo blog, para hacer más placentera tu visita aquí.
