@@ -28,14 +28,15 @@ def index(request):
 
 @login_required()
 def home(request):
-	queryset_list = libro.objects.order_by('-subida')[:15]
+	queryset_list = libro.objects.all().order_by('-subida')
 	Page_reques_var = "page"
-	query = request.GET.get("q")
-	if query:
-		queryset_list = queryset_list.filter(
-			Q(titulo__icontains=query)|
-			Q(categoria__icontains=query)
-		).distinct()
+	busqueda = request.GET.get("q")
+	if busqueda:
+			queryset_list = queryset_list.filter(
+				Q(titulo__icontains=busqueda)|
+				Q(escritor__icontains=busqueda)|
+				Q(categoria__icontains=busqueda)
+			).distinct()
 	paginator = Paginator(queryset_list, 10)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)
@@ -61,8 +62,15 @@ def home(request):
 
 @login_required()
 def MisLibros(request):
-	queryset_list = libro.objects.order_by('-subida')[:15]
+	queryset_list = libro.objects.all().order_by('-subida')
 	Page_reques_var = "page"
+	busqueda = request.GET.get("q")
+	if busqueda:
+	        queryset_list = queryset_list.filter(
+	            Q(titulo__icontains=busqueda)|
+				Q(escritor__icontains=busqueda)|
+				Q(categoria__icontains=busqueda)
+	        ).distinct()
 	paginator = Paginator(queryset_list, 10)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)

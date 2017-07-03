@@ -323,10 +323,10 @@
                   js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.9&appId=622033364660364";
                   fjs.parentNode.insertBefore(js, fjs);
                   }(document, 'script', 'facebook-jssdk'));</script>
-                    <!--<div class="col-md-8 col-md-offset-2" style="margin-top: -10%;">
+                    <div class="col-md-8 col-md-offset-2" style="margin-top: -10%;">
                         <input style="text-align: center;" class="form-control col-xs-12 col-ms-12 col-md-12 col-lg-12" type="text"  name='q' placeholder='titulo ó Categoría' value='{{ request.GET.q }}' autocomplete="off">
                         <button class="btn btn-primary col-xs-12 col-ms-12 col-md-12 col-lg-12"><i class="material-icons" style="font-size: 5em;">youtube_searched_for</i> Buscar</button>
-                    </div>-->
+                    </div>
                     {% if object_list %}
                     {% for libro in object_list %}
                     <div class="conteiner">
@@ -339,10 +339,10 @@
                                     }
                                 </style>
                                 <div class="descripcion col-md-12">
-                                    <h2 style="font-weight: bold;">{{ libro.titulo }} <small>- {{ libro.categoria }}</small></h2>
-                                    <p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">schedule</i> {{ libro.subida }}</p>
-																		<p style="font-size: 14px;">Autor-Escritor: {{ libro.escritor }}</p>
-                                </div>
+                                    <h2 style="font-weight: bold;">{{ libro.titulo }} <small>- {{ libro.escritor }}</small></h2>
+																		<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">grade</i> {{ libro.categoria }}</p>
+																		<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">schedule</i> {{ libro.subida }}</p>
+																</div>
 
                                 <div class="contenido col-md-12" style="text-align: justify;">
                                     <hr>
