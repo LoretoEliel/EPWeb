@@ -358,7 +358,6 @@
                     <div class="col-md-8 col-md-offset-2" style="margin-top: -10%;">
                         <input style="text-align: center;" class="form-control col-xs-12 col-ms-12 col-md-12 col-lg-12" type="text"  name='q' placeholder='titulo ó Categoría' value='{{ request.GET.q }}' autocomplete="off">
                         <button class="btn btn-primary col-xs-12 col-ms-12 col-md-12 col-lg-12"><i class="material-icons" style="font-size: 5em;">youtube_searched_for</i> Buscar</button>
-                        <a href="#" data-toggle="modal" data-target="#Juego"><button class="btn btn-success col-xs-12 col-ms-12 col-md-12 col-lg-12"><i class="material-icons" style="font-size: 5em;">videogame_asset</i> Juego</button></a>
                     </div>
                     {% if object_list %}
                     {% for libro in object_list %}
@@ -514,16 +513,6 @@
                     <a href="/logout/"><button type="button" class="btn btn-default btn-simple">Si, salir</button></a></center>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="Juego" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-body">
-            <div class="modal-content" style="background: #f3f3f3;">
-                <iframe src='http://www.minijuegostop.com.mx/showFlash.php?id=17868' width='540' height='255' frameborder=0></iframe>
-            </div>
-          </div>
         </div>
     </div>
 </body>
