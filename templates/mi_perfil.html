@@ -30,38 +30,25 @@
         </script>
 
         <style type="text/css">
-            .social {
-                list-style: none !important;
-                display: flex;
+            body {
+              background: #fff;
+              overflow-y: scroll;
+              overflow-x: hidden;
             }
 
-            @media (max-width:1000px) {
-                .nombre {
-                    display: none !important;
-                }
-
-                .social {
-                top: 15px;
-                left: 40px;
+            body::-webkit-scrollbar {
+              width: 10px;
+              background: #ddd;
             }
-            }
-
-            @media (max-width:767px) {
-                .nombre {
-                    display: block !important;
-                }
-
-                .social {
-                    position: static;
-                    justify-content: center;
-                    display: flex !important;
-                }
+            body::-webkit-scrollbar-thumb {
+              background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+              background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+              background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
             }
         </style>
     </head>
 
-    <body class="index-page" onload="nobackbutton()">
-        <div class="main main-raised">
+    <body onload="nobackbutton()">
         {% block content %}
         {% if user.is_authenticated %}
             <div class="row">
@@ -164,7 +151,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
         <footer class="footer">
             <div class="container">
@@ -193,46 +179,6 @@
             </div>
         </footer>
     </body>
-    <div class="modal fade" id="Salir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background: #f3f3f3;">
-                <div class="modal-body">
-                    <center>
-                        <i class="material-icons" style="font-size: 10em; color: #9c3bb4;">add_alert</i>
-                        <h1>¿Está Seguro...</h1>
-                        <p>Que desea salir y cerrar la sesión actual?</p>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <center><a href="/home/"><button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">No, cancelar</button></a>
-                    <a href="/logout/"><button type="button" class="btn btn-default btn-simple">Si, salir</button></a></center>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="Leer_mas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background: #f3f3f3;">
-                <div class="modal-body">
-                    <center>
-                        <i class="material-icons" style="font-size: 10em; color: #9c3bb4;">thumb_up</i>
-                        {% if user.is_authenticated %}
-                        <h3>Gracias {{ user.username }}...</h3>
-                        <p>En este sitio Web tienes la opción de buscar contenido de tu interés en términos de informática y tecnología. Ademas, podrás transcribir y publicar tus propios contenidos informativos de temas relacionados con lo antes mencionado. Es importante resaltar, que tendrás acceso a un chat en el que podrás comunicarte con los demás usuarios en tiempo real, a la vez que puedes agregar, buscar, compartir y escuchar tu música favorita dentro del mismo blog, para hacer más placentera tu visita aquí.
-                        <br><br>
-                        Trabajamos diariamente con mucha dedicación para mejorar tu experiencia dentro de nuestro blog ElProgramadorWeb.
-                        <br><br>
-                        ¡BIENVENIDO!</p>
-                        {% endif %}
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <center><a href="/home/"><button type="button" class="btn btn-primary btn-simple" data-dismiss="modal">Aceptar</button></a></center>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- ARCHIVOS JS -->
         <script src="/static/js/jquery.min.js" type="text/javascript"></script>
