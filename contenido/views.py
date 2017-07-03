@@ -28,8 +28,7 @@ def index(request):
 
 @login_required()
 def home(request):
-	queryset_list = User.objects.all()
-	queryset_list = libro.objects.all()
+	queryset_list = libro.objects.order_by('-subida')[:15]
 	Page_reques_var = "page"
 	query = request.GET.get("q")
 	if query:
@@ -37,7 +36,7 @@ def home(request):
 			Q(titulo__icontains=query)|
 			Q(categoria__icontains=query)
 		).distinct()
-	paginator = Paginator(queryset_list, 20)
+	paginator = Paginator(queryset_list, 10)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)
 	try:

@@ -393,22 +393,27 @@
                     {% endfor %}
                     {%  else  %}
                         <br><br><br><br>
-                        <center><h3>En estos momentos no hay información</h3></center>
+                        <center><h3>En estos momentos no hay libros</h3></center>
                     {% endif %}
 
                     <center>
+                      <style media="screen">
+                        .icon_pag a {
+                          font-size: 1em !important;
+                        }
+
+                        .active {
+                          line-height: 2em;
+                        }
+                      </style>
                        <ul class="pagination pagination-info">
-        							     <li><a href="javascript:void(0);"><</a></li>
-        							     <li class="active"><a href="javascript:void(0);">1</a></li>
-        							     <li><a href="javascript:void(0);">2</a></li>
-        							     <li><a href="javascript:void(0);">3</a></li>
-        							     <li><a href="javascript:void(0);">4</a></li>
-        							     <li><a href="javascript:void(0);">5</a></li>
-                           <li><a href="javascript:void(0);">6</a></li>
-                           <li><a href="javascript:void(0);">7</a></li>
-                           <li><a href="javascript:void(0);">8</a></li>
-                           <li><a href="javascript:void(0);">9</a></li>
-        							     <li><a href="javascript:void(0);">></a></li>
+                          {% if object_list.has_previous %}
+        							    <li class="icon_pag"><a href="?page={{object_list.previous_page_number}}"><</a></li>
+                          {% endif %}
+        							    <li class="icon_pag active"><a href="">{{ object_list.number }}/{{ object_list.paginator.num_pages }}</a></li>
+                          {% if object_list.has_next %}
+                          <li class="icon_pag"><a href="?page={{object_list.next_page_number}}">></a></li>
+                          {% endif %}
         	             </ul>
                     </center>
                 </form>
