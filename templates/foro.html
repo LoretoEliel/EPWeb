@@ -49,10 +49,10 @@
 					</div>
 					<ul class="lista-caja">
 						{% if object_list %}
-                        {% for User in object_list %}
-                        <a href="#" class="lista-caja__link">
+            {% for User in object_list %}
+              <a href="#" class="lista-caja__link">
 							<li class="lista-caja__user">
-								<span class="material-icons">wifi_tethering</span>
+								<span class="material-icons lista-caja__activo">wifi_tethering</span>
 								{{ User.username }}
 							</li>
 						</a>
