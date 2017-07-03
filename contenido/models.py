@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 
 class libro(models.Model):
 	titulo = models.CharField(max_length=150, blank=True, null=True)
+	escritor = models.CharField(max_length=150, blank=True, null=True)
 	descripcion = models.TextField(max_length=5000, blank=True, null=True)
 	libro = models.URLField(max_length=2000, null=True, blank=True, default='')
 	categoria = models.CharField(max_length=150, null=True, blank=True)

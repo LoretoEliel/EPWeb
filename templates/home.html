@@ -288,7 +288,7 @@
       	                </a>
       	            </li>
                     <li class="">
-      	                <a href="#" role="tab">
+      	                <a href="/mis_libros/" role="tab">
       									  <i class="material-icons">book</i>
       									  Mis libros
       	                </a>
@@ -339,21 +339,9 @@
                                     }
                                 </style>
                                 <div class="descripcion col-md-12">
-                                    {% if user.is_superuser %}
-                                    <ul style="list-style: none;">
-                                        <li style="position: absolute; right: 0; margin: auto;" class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="material-icons">settings</i>
-                                                <b class="caret"></b>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="{% url "eliminar_libro" libro.id %}">Eliminar</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    {% endif %}
                                     <h2 style="font-weight: bold;">{{ libro.titulo }} <small>- {{ libro.categoria }}</small></h2>
                                     <p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">schedule</i> {{ libro.subida }}</p>
+																		<p style="font-size: 14px;">Autor-Escritor: {{ libro.escritor }}</p>
                                 </div>
 
                                 <div class="contenido col-md-12" style="text-align: justify;">
@@ -375,13 +363,7 @@
 
                     <center>
                       <style media="screen">
-                        .icon_pag a {
-                          font-size: 1em !important;
-                        }
 
-                        .active {
-                          line-height: 2em;
-                        }
                       </style>
                        <ul class="pagination pagination-info">
                           {% if object_list.has_previous %}

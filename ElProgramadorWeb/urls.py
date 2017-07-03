@@ -66,6 +66,7 @@ urlpatterns = [
     #ESTO ES PARA AGREGAR CONTENIDO AL BLOG
     url(r'^agregar_libro/$', 'contenido.views.UploadLibro', name="Libros"),
         url(r'^libro_guardado/$', 'contenido.views.libro_guardado', name="Libro_Guardado"),
+        url(r'^mis_libros/$', 'contenido.views.MisLibros', name="MisLibros"),
         url(r'^info/(?P<pk>\d+)/eliminar/$', views.eliminar_libro, name='eliminar_libro'),
 
     #FORO DEL SITIO

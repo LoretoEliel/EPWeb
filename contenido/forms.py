@@ -12,7 +12,7 @@ class libroForm(forms.Form):
 	class Meta:
 		model = libro
 
-		fields = ('titulo', 'descripcion', 'libro', 'categoria')
+		fields = ('titulo', 'escritor', 'descripcion', 'libro', 'categoria')
 
 		def __init__(self, *args, **kwargs):
 			super().__init__(*args, **kwargs)

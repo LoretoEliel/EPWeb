@@ -51,6 +51,7 @@ def home(request):
 		'titulo':'List',
 		'descripcion' : 'List',
 		'libro': 'List',
+		'escritor': 'List',
 		'categoria': 'List',
 		'subida': 'List',
 		'autor': 'List',
@@ -59,11 +60,38 @@ def home(request):
 	return render_to_response('home.html', contexto, context_instance=RequestContext(request))
 
 @login_required()
+def MisLibros(request):
+	queryset_list = libro.objects.order_by('-subida')[:15]
+	Page_reques_var = "page"
+	paginator = Paginator(queryset_list, 10)
+	Page_reques_var = "page"
+	page = request.GET.get(Page_reques_var)
+	try:
+		queryset = paginator.page(page)
+	except PageNotAnInteger:
+		queryset = paginator.page(1)
+	except EmptyPage:
+		queryset = paginator.page(paginator.num_pages)
+
+	contexto = {
+		'object_list':queryset,
+		'titulo':'List',
+		'escritor': 'List',
+		'libro': 'List',
+		'categoria': 'List',
+		'subida': 'List',
+		'autor': 'List',
+		'Page_reques_var': Page_reques_var
+	}
+	return render_to_response('mis_libros.html', contexto, context_instance=RequestContext(request))
+
+@login_required()
 def UploadLibro(request):
 	if request.method == 'POST':
 		form = libroForm(request.POST)
 		if form.is_valid():
 			newdoc = libro(titulo = request.POST['titulo'],
+						   escritor = request.POST['escritor'],
         				   descripcion = request.POST['descripcion'],
 						   libro = request.POST['libro'],
 						   categoria = request.POST['categoria'],
@@ -84,7 +112,6 @@ def libro_guardado(request):
 
 @login_required()
 def eliminar_libro(request, pk):
-
 	info = get_object_or_404(libro, pk=pk)
 	info.delete()
-	return redirect('Home')
+	return redirect('MisLibros')

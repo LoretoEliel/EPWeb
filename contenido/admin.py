@@ -5,6 +5,7 @@ from .models import *
 
 class AdminLibro(admin.ModelAdmin):
 	list_display = ['__unicode__',
+					'escritor',
 					'descripcion',
 					'libro',
 					'categoria',
