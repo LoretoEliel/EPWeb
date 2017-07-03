@@ -18,9 +18,3 @@ class libroForm(forms.Form):
 			super().__init__(*args, **kwargs)
 			for field in self.fields:
 				self.fields[field].widget.attrs.update({'class':'form-control'})
-		def clean(self):
-        		cleaned_data = super(libroForm, self).clean()
-			title_exists = (titulo.objects.filter(titulo = cleaned_data.get('titulo')).count() > 0)
-
-			if title_exists:
-        			self.add_error('El contenido que va a subir ya existe')
