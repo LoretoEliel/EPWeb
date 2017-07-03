@@ -50,7 +50,7 @@
 						</button>
 						<b style="font-size: 2em;">Alerta de éxito:</b>
 						<h4 style="margin-top: 0; padding: 0; padding-left: 2.1em; margin-bottom: 0;">Su usuario ha sido registrado.</h4><p style="margin-top: -1.5em; padding-left:19.8em;">Si no tienes cuenta en mega <a style="cursor: pointer;" href="https://mega.nz/register" target="_blank">¡Regístrate aquí!</a></p>
-						<a style="cursor: pointer; padding-left: 1.3em; font-size: 2em;" href="/">Iniciar sesión</a>
+						<a style="cursor: pointer; padding-left: 1.3em; font-size: 2em;" href="/"><button class="btn btn-success" type="button" name="button">Iniciar sesión</button></a>
 				</div>
 		</div>
        <div class="row">
@@ -63,23 +63,23 @@
                       <div class="content">
                           <div class="form-group label-floating">
                               <label class="control-label" for="id_first_name">Nombre</label>
-                              <input maxlength="30" id="id_first_name" name="first_name" type="text" class="form-control" required autocomplete="off">
+                              <input disabled maxlength="30" id="id_first_name" name="first_name" type="text" class="form-control" required autocomplete="off">
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label" for="id_last_name">Apellido</label>
-                              <input maxlength="30" id="id_last_name" name="last_name" type="text" class="form-control" required autocomplete="off">
+                              <input disabled maxlength="30" id="id_last_name" name="last_name" type="text" class="form-control" required autocomplete="off">
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label" for="id_email">Correo tipo Gmail Ejemplo@gmail.com</label>
-                              <input maxlength="254" id="id_email" name="email" type="email" class="form-control" required autocomplete="off">
+                              <input disabled maxlength="254" id="id_email" name="email" type="email" class="form-control" required autocomplete="off">
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label" for="id_username">Nombre de usuario</label>
-                              <input maxlength="30" id="id_username" name="username" type="text" class="form-control" required autocomplete="off">
+                              <input disabled maxlength="30" id="id_username" name="username" type="text" class="form-control" required autocomplete="off">
                           </div>
                           <div class="form-group label-floating">
                               <label class="control-label" for="id_password">Contraseña</label>
-                              <input maxlength="20" id="id_password" name="password" type="password" class="form-control" required autocomplete="off">
+                              <input disabled maxlength="20" id="id_password" name="password" type="password" class="form-control" required autocomplete="off">
                           </div>
                       </div>
                       {% if form.errors %}
