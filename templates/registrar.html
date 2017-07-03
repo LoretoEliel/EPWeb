@@ -79,7 +79,11 @@
                                       <span aria-hidden="true"><i class="material-icons">clear</i></span>
                                   </button>
                                   <b>Alerta de Error:</b>
-																	{{ form.errors }}
+																	{{ form.first_name.errors }}
+																	{{ form.last_name.errors }}
+																	{{ form.email.errors }}
+																	{{ form.username.errors }}
+																	{{ form.password.errors }}
                               </div>
                           </div>
                       {% endif %}
