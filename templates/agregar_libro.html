@@ -75,7 +75,7 @@
     	<div class="row">
             <div class="container col-xs-10 col-xs-offset-1 col-ms-10 col-ms-offset-1 col-md-10 col-md-offset-1" style="position: relative; margin-top: 2em;">
                 {% block content %}
-                <h2 class="text-center">Café Intelectual <small>ingresé sus libros</small></h2>
+                <h2 class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>ingresé sus libros</small></h2>
                 <div style="border: 1px solid rgba(0,0,0,0.2);">
                   <form style="box-shadow: 2px 0 rgba(0,0,0,0.2);" class="form form-register col-md-6 col-lg-6" id="contenedor" method="post" action="{% url 'Libros' %}" onsubmit="return validar();">
                   {% csrf_token %}
