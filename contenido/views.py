@@ -37,7 +37,7 @@ def home(request):
 				Q(escritor__icontains=busqueda)|
 				Q(categoria__icontains=busqueda)
 			).distinct()
-	paginator = Paginator(queryset_list, 10)
+	paginator = Paginator(queryset_list, 8)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)
 	try:
@@ -71,7 +71,7 @@ def MisLibros(request):
 				Q(escritor__icontains=busqueda)|
 				Q(categoria__icontains=busqueda)
 	        ).distinct()
-	paginator = Paginator(queryset_list, 5)
+	paginator = Paginator(queryset_list, 8)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)
 	try:
