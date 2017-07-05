@@ -50,7 +50,6 @@ def home(request):
 	contexto = {
 		'object_list':queryset,
 		'titulo':'List',
-		'descripcion' : 'List',
 		'libro': 'List',
 		'escritor': 'List',
 		'categoria': 'List',
