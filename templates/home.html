@@ -327,57 +327,54 @@
                         <input style="text-align: center;" class="form-control col-xs-12 col-ms-12 col-md-12 col-lg-12" type="text"  name='q' placeholder='titulo ó Categoría' value='{{ request.GET.q }}' autocomplete="off">
                         <button class="btn btn-primary col-xs-12 col-ms-12 col-md-12 col-lg-12"><i class="material-icons" style="font-size: 5em;">youtube_searched_for</i> Buscar</button>
                     </div>
-                    {% if object_list %}
-                    {% for libro in object_list %}
                     <div class="conteiner">
                         <div class="row">
-                            <div class="col-xs-10 col-xs-offset-1 col-ms-10 col-ms-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                                <hr>
-                                <style type="text/css">
-                                    .descripcion ul a {
-                                        text-decoration: none;
-                                    }
-                                </style>
-                                <div class="descripcion col-md-12">
-                                    <h2 style="font-weight: bold;">{{ libro.titulo }} <small>- {{ libro.escritor }}</small></h2>
-																		<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">grade</i> {{ libro.categoria }}</p>
-																		<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">schedule</i> {{ libro.subida }}</p>
-																</div>
-
-                                <div class="contenido col-md-12" style="text-align: justify;">
-                                    <hr>
-                                    <blockquote style="border-left: none;">
-                                        <p>{{ libro.descripcion }}</p>
-                                        <a target="_blank" href="{{ libro.libro }}"><span class="material-icons">picture_as_pdf</span> Descargar libro</a>
-                                        <footer>{{ libro.autor}}</footer>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {%  else  %}
-                        <br><br><br><br>
-                        <center><h3>En estos momentos no hay libros</h3></center>
-                    {% endif %}
-
+													<style type="text/css">
+														.caja_titulo {
+															min-height: 5em;
+															width: 100%;
+														}
+														.descripcion ul a {
+															text-decoration: none;
+														}
+													</style>
+													<div class="caja_libros">
+														{% if object_list %}
+				                    {% for libro in object_list %}
+														<div class="col-xs-12 col-ms-6 col-md-4 col-lg-3">
+															<hr>
+															<div class="descripcion col-md-12">
+																	<div class="caja_titulo">
+																		<h4 class="text-justify" style="font-weight: bold;">{{ libro.titulo }}</h4>
+																	</div>
+																	<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">face</i> {{ libro.escritor }}</p>
+																	<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">grade</i> {{ libro.categoria }}</p>
+																	<p style="font-size: 14px;"><i class="material-icons"  style="font-size: 14px;">schedule</i> {{ libro.subida }}</p>
+																	<a href="/libro/{{ libro.slug }}/"><button style="width: 100%;" type="button" name="button" class="btn btn-primary">leer más</button></a>
+															</div>
+														</div>
+														{% endfor %}
+													</div>
+                    			{%  else  %}
+                        	<br><br><br><br>
+                        	<center><h3>En estos momentos no hay libros</h3></center>
+                    			{% endif %}
                     <center>
-                      <style media="screen">
-
-                      </style>
-                       <ul class="pagination pagination-info">
-                          {% if object_list.has_previous %}
-        							    <li class="icon_pag"><a href="?page={{object_list.previous_page_number}}"><</a></li>
-                          {% endif %}
-        							    <li class="icon_pag active"><a href="">{{ object_list.number }}/{{ object_list.paginator.num_pages }}</a></li>
-                          {% if object_list.has_next %}
-                          <li class="icon_pag"><a href="?page={{object_list.next_page_number}}">></a></li>
-                          {% endif %}
-        	             </ul>
+											<div class="col-xs-12 col-ms-12 col-md-12 col-lg-12">
+												<ul class="pagination pagination-info">
+                           {% if object_list.has_previous %}
+         							    <li class="icon_pag"><a href="?page={{object_list.previous_page_number}}"><</a></li>
+                           {% endif %}
+         							    <li class="icon_pag active"><a href="">{{ object_list.number }}/{{ object_list.paginator.num_pages }}</a></li>
+                           {% if object_list.has_next %}
+                           <li class="icon_pag"><a href="?page={{object_list.next_page_number}}">></a></li>
+                           {% endif %}
+         	             </ul>
+											</div>
                     </center>
                 </form>
                 <br>
-                <div class="comentarios col-md-8 col-md-offset-2">
+                <div class="comentarios col-xs-12 col-ms-12 col-md-12 col-lg-12">
                     <style media="screen">
                       ._42ef a,
                       ._8u a,

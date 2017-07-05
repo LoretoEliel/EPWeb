@@ -11,7 +11,7 @@ from django.template.context import RequestContext
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.views.generic.edit import CreateView
-from django.views.generic import ListView, DeleteView, TemplateView, UpdateView
+from django.views.generic import ListView, DeleteView, TemplateView, UpdateView, DetailView
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 # from .forms import FormularioEvento
 from django.core.urlresolvers import reverse_lazy
@@ -37,7 +37,7 @@ def home(request):
 				Q(escritor__icontains=busqueda)|
 				Q(categoria__icontains=busqueda)
 			).distinct()
-	paginator = Paginator(queryset_list, 8)
+	paginator = Paginator(queryset_list, 12)
 	Page_reques_var = "page"
 	page = request.GET.get(Page_reques_var)
 	try:
@@ -119,7 +119,11 @@ def libro_guardado(request):
 	return render_to_response("libro_guardado.html")
 
 @login_required()
-def eliminar_libro(request, pk):
+def Eliminar_libro(request, pk):
 	info = get_object_or_404(libro, pk=pk)
 	info.delete()
 	return redirect('MisLibros')
+
+class LibroDetailView(DetailView):
+	template_name = 'detalles_libro.html'
+	model = libro

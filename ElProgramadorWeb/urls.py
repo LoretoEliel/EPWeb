@@ -16,11 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from django.conf import settings
+from contenido.views import LibroDetailView
 from django.contrib.auth.views import login, logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 from django.contrib.auth.decorators import login_required
-
-from contenido import views
-
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -56,6 +54,7 @@ urlpatterns = [
 
     #HOME O DENTRO DEL SISTEMA
     url(r'^home/$', 'contenido.views.home', name="Home"),
+        url(r'^libro/(?P<slug>[-\w]+)/$', LibroDetailView.as_view()),
         url(r'^mi_perfil/$', 'acounts.views.my_perfil', name="MyPerfil"),
 
     #CONTACTAME
@@ -67,7 +66,7 @@ urlpatterns = [
     url(r'^agregar_libro/$', 'contenido.views.UploadLibro', name="Libros"),
         url(r'^libro_guardado/$', 'contenido.views.libro_guardado', name="Libro_Guardado"),
         url(r'^mis_libros/$', 'contenido.views.MisLibros', name="MisLibros"),
-        url(r'^info/(?P<pk>\d+)/eliminar/$', views.eliminar_libro, name='eliminar_libro'),
+        url(r'^info/(?P<pk>\d+)/eliminar/$', 'contenido.views.Eliminar_libro', name='eliminar_libro'),
 
     #FORO DEL SITIO
     url(r'^foro/$', 'foro.views.chatbox', name='messenger'),

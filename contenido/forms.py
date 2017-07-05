@@ -4,6 +4,7 @@
 from django import forms
 from .models import *
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 class libroForm(forms.Form):
 
@@ -12,7 +13,7 @@ class libroForm(forms.Form):
 	class Meta:
 		model = libro
 
-		fields = ('titulo', 'escritor', 'descripcion', 'libro', 'categoria')
+		fields = ('titulo', 'escritor', 'descripcion', 'libro', 'categoria', 'slug')
 
 		def __init__(self, *args, **kwargs):
 			super().__init__(*args, **kwargs)
