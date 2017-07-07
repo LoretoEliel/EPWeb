@@ -52,8 +52,13 @@
             {% for User in object_list %}
               <a href="#" class="lista-caja__link">
 							<li class="lista-caja__user">
-								<span class="material-icons lista-caja__activo">wifi_tethering</span>
+								{% if request.user.last_login == User.last_login %}
+									<span class="material-icons lista-caja__activo">wifi_tethering</span>
+								{% else %}
+									<span class="material-icons">wifi_tethering</span>
+								{% endif %}
 								{{ User.username }}
+								<p class="tiempo_conexion">{{ User.last_login }}</p>
 							</li>
 						</a>
 						{% endfor %}

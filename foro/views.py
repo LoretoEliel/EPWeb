@@ -47,10 +47,11 @@ def chatbox(request):
     ctx = {
         'object_list':queryset,
         'username': 'List',
+        'last_login_1': 'List',
         'messenger': 'active',
         'chat': c,
         'form': form
-    }    
+    }
 
     return render(request, "foro.html", ctx)
 
