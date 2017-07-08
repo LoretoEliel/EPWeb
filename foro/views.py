@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.contrib.auth import authenticate, logout, login
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from ElProgramadorWeb import settings
+from settings import settings
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
