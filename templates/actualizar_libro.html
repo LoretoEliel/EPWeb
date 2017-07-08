@@ -68,97 +68,34 @@
 	<title>Café Intelectual</title>
 </head>
 <body>
-    <a style="position: absolute; top: 1em; left: 1em; margin: auto;" href="/home/"><span style="font-size: 3em;" class="material-icons">reply_all</span></a>
        <div class="row">
             <div class="container col-xs-10 col-xs-offset-1 col-ms-10 col-ms-offset-1 col-md-10 col-md-offset-1" style="position: relative; margin-top: 2em;">
                 {% block content %}
-                <h2 class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>mis libros</small></h2>
-                <div style="border: 1px solid rgba(0,0,0,0.2);"></div>
-                <form action="" method="GET">
-                <div class="col-md-12 col-md-offset-0" style="display: flex; justify-content: center;">
-                    <input style="width: 650px; text-align: center;" class="form-control col-md-10" type="text"  name='q' placeholder='titulo ó Categoría' value='{{ request.GET.q }}' autocomplete="off">
-                    <button class="btn btn-primary col-md-2"><i class="material-icons" style="font-size: 2em;">youtube_searched_for</i></button>
-                </div>
-                <div class="table-responsive col-xs-12 col-ms-12 col-md-12 col-lg-12">
-                  <hr>
-                  <table class="table table-striped">
-                    {% if user.is_superuser %}
-                        <thead>
-                          <tr>
-                            <th>User</th>
-                            <th>Titulo</th>
-                            <th>Escritor</th>
-                            <th>Categoria</th>
-                            <th>Fecha/Subido</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                    {% else %}
-                        <thead>
-                          <tr>
-                            <th>Titulo</th>
-                            <th>Escritor</th>
-                            <th>Categoria</th>
-                            <th>Fecha/Subido</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                    {% endif %}
-                    {% if user.is_superuser %}
-                        <tbody>
-                          {% if object_list %}
-                          {% for libro in object_list %}
-                          <tr>
-                            <td>{{ libro.autor }}</td>
-                            <td>{{ libro.titulo }}</td>
-                            <td>{{ libro.escritor }}</td>
-                            <td>{{ libro.categoria }}</td>
-                            <td>{{ libro.subida }}</td>
-														<center><td><a href="{% url "eliminar_libro" libro.id %}"><i class="material-icons">delete_forever</i></a></td></center>
-                            <center><td><a href="/update/{{ libro.slug }}/"><i class="material-icons">edit</i></a></td></center>
-                          </tr>
-                          {% endfor %}
-                          {%  else  %}
-                              <br><br><br><br>
-                              <center><h3>En estos momentos no hay libros</h3></center>
-                          {% endif %}
-                        </tbody>
-                    {% else %}
-                        <tbody>
-                          {% if object_list %}
-                          {% for libro in object_list %}
-                          {% if libro.autor == user %}
-                          <tr>
-                            <td>{{ libro.titulo }}</td>
-                            <td>{{ libro.escritor }}</td>
-                            <td>{{ libro.categoria }}</td>
-                            <td>{{ libro.subida }}</td>
-                            <center><td><a href="{% url "eliminar_libro" libro.id %}"><i class="material-icons">delete_forever</i></a></td></center>
-                          </tr>
-                          {% endif %}
-                          {% endfor %}
-                          {%  else  %}
-                              <br><br><br><br>
-                              <center><h3>En estos momentos no hay libros</h3></center>
-                          {% endif %}
-                        </tbody>
-                    {% endif %}
-                  </table>
-                  <center>
-                    <style media="screen">
-
-                    </style>
-                     <ul class="pagination pagination-info">
-                        {% if object_list.has_previous %}
-                        <li class="icon_pag"><a href="?page={{object_list.previous_page_number}}"><</a></li>
-                        {% endif %}
-                        <li class="icon_pag active"><a href="">{{ object_list.number }}/{{ object_list.paginator.num_pages }}</a></li>
-                        {% if object_list.has_next %}
-                        <li class="icon_pag"><a href="?page={{object_list.next_page_number}}">></a></li>
-                        {% endif %}
-                     </ul>
-                  </center>
+                <h2 class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>ingresé sus libros</small></h2>
+                <div style="border: 1px solid rgba(0,0,0,0.2);">
+                  <form style="box-shadow: 2px 0 rgba(0,0,0,0.2);" class="form form-register col-md-6 col-lg-6" id="contenedor" method="GET" action="{% url 'Libros' %}" onsubmit="return validar();">
+                  {% csrf_token %}
+                      <div class="content">
+                          <div class="form-group label-floating">
+                            {{ forms.forms }}
+                          </div>
+                      </div>
+                      <div class="footer text-center">
+                          <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size:2em;">send</i></button>
+                          <input type="hidden" name="next" value="{{ next }}">
+                          <a
+                          style="text-decoration: none; color: red;" href="/home/"><i class="material-icons" style="font-size:2em; width: 110px;">close</i></a>
+                      </div>
                   </form>
+                  <div class="col-md-6 col-lg-6">
+                      <h3 style="text-align: center; text-transform: uppercase;">Sube el libro a MEGA.nz</h3>
+                      <hr>
+                      <a href="https://mega.nz" target="_blank">
+                        <div style="width: 100%; height: 310px; position: relative;">
+                          <img style="position: absolute;" src="/static/img/mega_subir.png" alt="mega" width="100%" height="310px">
+                        </div>
+                      </a>
+                  </div>
                 </div>
                 <br><br>
                 <footer class="footer col-xs-12 col-xs-offset-0 col-ms-12 col-ms-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">

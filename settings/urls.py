@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from django.conf import settings
-from contenido.views import LibroDetailView
+from contenido.views import LibroDetailView, LibroUpdateView
 from django.contrib.auth.views import login, logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 from django.contrib.auth.decorators import login_required
 from django.conf.urls.static import static
@@ -55,6 +55,7 @@ urlpatterns = [
     #HOME O DENTRO DEL SISTEMA
     url(r'^home/$', 'contenido.views.home', name="Home"),
         url(r'^libro/(?P<slug>[-\w]+)/$', LibroDetailView.as_view()),
+        url(r'^update/(?P<slug>[-\w]+)/$', LibroUpdateView.as_view()),
         url(r'^mi_perfil/$', 'acounts.views.my_perfil', name="MyPerfil"),
 
     #CONTACTAME

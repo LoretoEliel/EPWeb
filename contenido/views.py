@@ -126,3 +126,7 @@ def Eliminar_libro(request, pk):
 class LibroDetailView(DetailView):
 	template_name = 'detalles_libro.html'
 	model = libro
+
+class LibroUpdateView(UpdateView):
+	template_name = 'actualizar_libro.html'
+	model = libro
