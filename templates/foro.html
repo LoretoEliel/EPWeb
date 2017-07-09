@@ -23,12 +23,6 @@
             <script src="/static/emoji/twemoji.min.js?2.3.0"></script>
             <script src="/static/emoji/test.js"></script>
         <!-- FIN DE ARCHIVOS CSS -->
-        	<script type="text/javascript">
-    			// var int=self.setInterval("refresh()",20000);
-    			// function refresh() {
-       			//    location.reload(true);
-    			// }
-			</script>
 
 		<title>Café Intelectual</title>
 	</head>
@@ -40,7 +34,7 @@
 						<a href="/home/" class="col-md-4 lista-user__opc">
 							<span class="material-icons config">keyboard_backspace</span>
 						</a>
-						<a href="/foro/" class="col-md-4 lista-user__opc">
+						<a href="/foro/" id="xxx" class="col-md-4 lista-user__opc">
 							<span class="material-icons config">update</span>
 						</a>
 						<a href="#" class="col-md-4 lista-user__opc">
@@ -52,13 +46,13 @@
             {% for User in object_list %}
               <a href="#" class="lista-caja__link">
 							<li class="lista-caja__user">
-								{% if request.user.last_login == User.last_login %}
-									<span class="material-icons lista-caja__activo">wifi_tethering</span>
-								{% else %}
-									<span class="material-icons">wifi_tethering</span>
-								{% endif %}
-								{{ User.username }}
-								<p class="tiempo_conexion">{{ User.last_login }}</p>
+									{% if request.user.last_login <= User.last_login %}
+										<span class="material-icons lista-caja__activo">wifi_tethering</span>
+									{% else %}
+										<span class="material-icons">wifi_tethering</span>
+									{% endif %}
+									{{ User.username }}
+									<p class="tiempo_conexion">{{ User.last_login }}</p>
 							</li>
 						</a>
 						{% endfor %}
@@ -196,6 +190,13 @@
 			    }(
 			      document.getElementsByTagName('img'),
 			    ));
+			</script>
+
+			<script type="text/javascript">
+				var int=self.setInterval("refresh()",20000);
+				function refresh() {
+						location.reload(true);
+				}
 			</script>
 
     	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
