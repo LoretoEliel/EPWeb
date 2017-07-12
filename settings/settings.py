@@ -86,10 +86,11 @@ DATABASES = {
         #para remontar el servidor
         #/etc/init.d/postgresql restart
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'CoffeInt',
-        'USER': 'postgres',
-        'PASSWORD': 'popoleaxD',
-        'HOST': 'localhost',
+        'NAME': 'd6249lact8lcf8',
+        'USER': 'lzzibbuhhdqrdy',
+        'PASSWORD': 'cb56b0f85577420315cd40537a85c8b12805125adde1da293f4d2accfb9927cf',
+        'HOST': 'ec2-54-243-252-91.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
