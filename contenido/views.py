@@ -129,6 +129,7 @@ class LibroDetailView(DetailView):
 
 class LibroUpdateView(UpdateView):
 	template_name = 'actualizar_libro.html'
+	form_class = libroForm
 	model = libro
-	fields = ['titulo', 'escritor', 'categoria', 'descripcion', 'libro']
+	#fields = ['titulo', 'escritor', 'categoria', 'descripcion', 'libro']
 	success_url = 'MisLibros'
