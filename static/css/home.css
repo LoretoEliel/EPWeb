@@ -166,7 +166,6 @@
 /*BANNER*/
 .caja-banner {
   position: relative;
-  background-image: url(/static/img/banner.gif);
   background-repeat: no-repeat;
   background-size: cover;
   width: 86.5%;
