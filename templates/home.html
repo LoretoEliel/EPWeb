@@ -18,6 +18,7 @@
             <link href="/static/css/bootstrap.min.css" rel="stylesheet">
             <link href="/static/css/material-kit.css" rel="stylesheet">
             <link href="/static/css/demo.css" rel="stylesheet">
+						<link rel="stylesheet" href="/static/css/home.css">
         <!-- FIN DE ARCHIVOS CSS -->
         <style type="text/css" media="screen">
             body {
@@ -54,145 +55,6 @@
                 <h2 class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>Bienvenido {{ user.username }}</small></h2>
                 <div style="border: 1px solid rgba(0,0,0,0.2);"></div>
                 <div class="navegador">
-                  <style media="screen">
-                    .nav-pills {
-                      width: 100%;
-                      border-bottom: 2px solid rgba(0,0,0,0.2);
-                    }
-                    .nav-pills li {
-                      padding-left: 2em;
-                    }
-
-                    .navbar {
-                      width: 95% !important;
-                      display: none;
-                      margin-left: 50%;
-                      transform: translateX(-50%);
-                    }
-
-                    @media screen and (max-width: 1505px){
-                      .nav-pills li {
-                        margin-left: 24.5%;
-                        transform: translateX(-76.5%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1325px) {
-                      .nav-pills li {
-                        margin-left: 22%;
-                        transform: translateX(-78%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1230px) {
-                      .nav-pills li {
-                        margin-left: 20%;
-                        transform: translateX(-80%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1205px) {
-                      .nav-pills li {
-                        margin-left: 19%;
-                        transform: translateX(-81%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1200px) {
-                      .nav-pills li {
-                        margin-left: 18%;
-                        transform: translateX(-82%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1175px) {
-                      .nav-pills li {
-                        margin-left: 17%;
-                        transform: translateX(-83%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1155px) {
-                      .nav-pills li {
-                        margin-left: 16%;
-                        transform: translateX(-84%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1140px) {
-                      .nav-pills li {
-                        margin-left: 15%;
-                        transform: translateX(-85%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1120px) {
-                      .nav-pills li {
-                        padding-left: 1.5em;
-                        margin-left: 17%;
-                        transform: translateX(-83%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1105px) {
-                      .nav-pills li {
-                        margin-left: 16%;
-                        transform: translateX(-84%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1080px) {
-                      .nav-pills li {
-                        margin-left: 15%;
-                        transform: translateX(-85%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1070px) {
-                      .nav-pills li {
-                        padding-left: 1em;
-                        margin-left: 17%;
-                        transform: translateX(-83%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1040px) {
-                      .nav-pills li {
-                        margin-left: 16%;
-                        transform: translateX(-84%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1025px) {
-                      .nav-pills li {
-                        padding-left: 0.5em;
-                        margin-left: 18%;
-                        transform: translateX(-82%);
-                      }
-                    }
-
-                    @media screen and (max-width: 1000px){
-                      .nav-pills li {
-                        padding-left: 1em;
-                      }
-                    }
-
-                    @media screen and (max-width: 800px){
-                      .nav-pills li {
-                        padding-left: 0;
-                      }
-                    }
-
-                    @media screen and (max-width: 768px){
-                      .navbar {
-                        display: block;
-                      }
-
-                      .nav-pills {
-                        display: none;
-                      }
-                    }
-                  </style>
                   <!-- MENU -->
                   <nav class="navbar navbar-primary navbar-fixed-top navbar-color-on-scroll">
                           <div class="container">
@@ -213,31 +75,6 @@
                                               <img src="/static/img/default-avatar.png" alt="foto_perfil" rel="tooltip" title="<b> Café Intelectual </ b> fue diseñado y codificado con cuidado por <b> VEnv Youtuber</ b>" data-placement="bottom" data-html="true" style="width: 100%; height: 70px;">
                                           {% endif %}
                                           </div>
-                                          <style type="text/css">
-                                              .nombre_user {
-                                                  color: #fff;
-                                              }
-
-                                              .nombre_user a {
-                                                  text-decoration: none !important;
-                                              }
-
-                                              .nombre_user a:hover {
-                                                  text-decoration: none !important;
-                                              }
-
-                                              .perfil {
-                                                  text-decoration: none !important;
-                                              }
-
-                                              .perfil p {
-                                                  color: #fff;
-                                              }
-
-                                              .perfil p:hover {
-                                                  text-decoration: underline !important;
-                                              }
-                                          </style>
                                           <div class="brand nombre" style="margin-top: 17px;">
                                               <p class="nombre_user">{{ user.username }}</p>
                                               <a href="/mi_perfil/" class="perfil"><p>mi perfil</p></a>
@@ -313,7 +150,28 @@
       	            </li>
       	          </ul>
                 </div>
-                <form action="" method="GET" style="margin-top: 9em;">
+
+								<section class="banner">
+									<div class="container">
+										<div class="row">
+											<div class="caja-banner">
+												<div class="caja-banner_titulo">
+													<h2>Descarga para leer tus libros <small>- EPUB ó PDF</small></h2>
+												</div>
+												<div class="caja-banner_descarga">
+													<a href="https://mega.nz/#!Glc0SD7I!8lA-1d1nU0aK5mz1Cbc3gcmOcF2VUU2eYbaq5CaDpbs" target="_blank">
+														<img class="ebook" src="/static/img/copyrightbook.png" alt="ebook">
+													</a>
+													<a href="https://mega.nz/#!208xGTjY!ZV7O5PbAiwN0lQHmnJTcozhx7v4eWCgl2WCdiXEtDLI" target="_blank">
+														<img class="adobe" src="/static/img/adobe_main.png" alt="adobe_read">
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+
+                <form action="" method="GET" style="margin-top: 6em;">
                   <div id="fb-root"></div>
                   <!--ESTO ES DE LOS LIKE DE FACEBOOK-->
                   <script>(function(d, s, id) {
