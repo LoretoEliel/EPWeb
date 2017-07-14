@@ -168,11 +168,26 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 86.5%;
   height: 250px;
   margin-top: 1em;
-  margin-left: 50%;
-  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1505px) {
+  .caja-banner {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1325px) {
+  .caja-banner {
+    width: 96.5%;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .caja-banner {
+    width: 86.5%;
+  }
 }
 
 .caja-banner:before {
