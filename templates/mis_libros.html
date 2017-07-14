@@ -110,7 +110,7 @@
                           {% for libro in object_list %}
                           <tr>
                             <td>{{ libro.autor }}</td>
-                            <td>{{ libro.titulo }}</td>
+                            <td><a href="/libro/{{ libro.slug }}/">{{ libro.titulo }}</a></td>
                             <td>{{ libro.escritor }}</td>
                             <td>{{ libro.categoria }}</td>
                             <td>{{ libro.subida }}</td>
@@ -129,12 +129,12 @@
                           {% for libro in object_list %}
                           {% if libro.autor == user %}
                           <tr>
-                            <td>{{ libro.titulo }}</td>
+                            <td><a href="/libro/{{ libro.slug }}/">{{ libro.titulo }}</a></td>
                             <td>{{ libro.escritor }}</td>
                             <td>{{ libro.categoria }}</td>
                             <td>{{ libro.subida }}</td>
                             <center><td><a href="{% url "eliminar_libro" libro.id %}"><i class="material-icons">delete_forever</i></a></td></center>
-														<center><td><a href="#" data-toggle="modal" data-target="#Error"><i class="material-icons">edit</i></a></td></center>
+														<center><td><a href="{% url "actualizar_libro" libro.pk %}"><i class="material-icons">edit</i></a></td></center>
                           </tr>
                           {% endif %}
                           {% endfor %}
