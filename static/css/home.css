@@ -164,11 +164,6 @@
 }
 
 /*BANNER*/
-.banner {
-  display: flex;
-  justify-content: center;
-}
-
 .caja-banner {
   position: relative;
   background-repeat: no-repeat;
@@ -176,6 +171,8 @@
   width: 86.5%;
   height: 250px;
   margin-top: 1em;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .caja-banner:before {
