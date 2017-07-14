@@ -164,6 +164,11 @@
 }
 
 /*BANNER*/
+.banner {
+  display: flex;
+  justify-content: center;
+}
+
 .caja-banner {
   position: relative;
   background-repeat: no-repeat;
