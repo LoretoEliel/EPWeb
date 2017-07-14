@@ -1,0 +1,164 @@
+/*REPRODUCTOR ORIGINAL*/
+.contenedor__reproductor {
+    background: #368C72;
+    width: 100%;
+    height: 8em;
+    border: 1px solid #368C72;
+    padding: 2em 2em;
+}
+
+.caja__reproductor {
+    background: #7ECBA1 
+            linear-gradient(
+                rgba(255,255,255,0.4),
+                rgba(0,0,0,0.4)
+    );
+    height: 60px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.controls_reproductor {
+    padding: 0 1em;
+    margin-left: -0.5em; 
+}
+                
+.controls_reproductor span {
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    width: 50px;
+    line-height: 1.7em;
+    font-size: 2.5em;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.2) inset;
+    transition: all 0.5s;
+}
+
+.controls_reproductor span:hover {
+    background: #368C72 linear-gradient(
+            rgba(255,255,255,0.4),
+            rgba(0,0,0,0.4)
+        );
+    box-shadow: 50px 0 0 0 rgba(0,0,0,0.2) inset;
+}
+                
+.barra_progreso {
+    padding-top: 1.4em;
+    color: #fff;  
+}
+
+.mostrar {
+    display: none;
+}
+
+/*LISTA DE CANCIONES*/
+.play span {
+    background: #368C72 linear-gradient(
+            rgba(255,255,255,0.4),
+            rgba(0,0,0,0.4)
+        );
+    width: 100%;
+    line-height: 1.34em;
+    text-align: center;
+    font-size: 10em;
+    color: #fff;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 1px 0 rgba(0,0,0,0.5) inset;
+    transition: all .4s;
+}
+
+.play span:hover {
+    box-shadow: 200px 0 rgba(0,0,0,0.3) inset;
+}
+
+.play span:active {
+    transition: all .5s;
+    background: #368C72
+        radial-gradient(
+            rgba(0,0,0,0.5),
+            rgba(255,255,255,0.5)
+    );
+}
+
+/*.play span:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 1.26em;
+    margin: auto;
+    background: #368C72;
+}
+
+.play span:before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 1.26em;
+    margin: auto;
+    background: #368C72;
+}*/
+
+.descripcion {
+    border: 2px solid #368C72;
+    box-sizing: border-box;
+    border-left: none;
+    position: relative;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.descripcion:after {
+    content: "";
+    width: 15px;
+    height: 90%;
+    position: absolute;
+    top: 0;
+    left: -0.7em;
+    bottom: 0;
+    margin: auto;
+    background: #368C72 linear-gradient(
+            rgba(255,255,255,0.4),
+            rgba(0,0,0,0.4)
+        );
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.descripcion p {
+    text-transform: capitalize;
+}
+
+/*#track {
+    width: 100%;
+    height: 10px;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+#progress {
+    padding-top: 1.42em;
+    height: 5px;
+    width: 0;
+    background: #00CC99;
+    cursor: pointer;
+}
+#handler {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #000000;
+    top: 50.5%;
+    left: 0;
+    margin-left: -34px;
+    margin-top: -6px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+}*/

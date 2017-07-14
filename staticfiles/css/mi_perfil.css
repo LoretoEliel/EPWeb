@@ -1,0 +1,121 @@
+body {
+	overflow: hidden;
+}
+
+.main-raised {
+	margin-top: 1em;
+	height: 450px !important;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.main-raised::-webkit-scrollbar {
+	width: 10px;
+	background: #ddd;
+}
+
+.main-raised::-webkit-scrollbar-thumb {
+	background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+    background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.volver {
+	position: relative;
+	text-align: right;
+}
+
+.volver button {
+	border: 2px solid rgba(255, 255, 255, 0.41);
+}
+
+.banner_perfil {
+	background: #A55540 linear-gradient(
+              rgba(255,255,255,0.5),
+              rgba(0,0,0,0.5)
+		);
+    height: 150px;
+    max-height: 150px;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.41);
+}
+
+.foto_perfil {
+	background: rgba(0,0,0,.2);
+	display: flex;
+	margin: auto;
+	justify-content: center;
+	height: 146px;
+}
+
+.caja_img {
+	width: 200px;
+	height: 200px;
+}
+
+.foto_perfil img {
+	width: 100%;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.datos_perfil {
+	margin-top: -0.5em;
+	color: #fff;
+}
+
+.mail h5 {
+	margin-top: -1.69em;
+    margin-left: 2em;
+}
+
+.estatus p {
+	margin-top: -2em;
+	margin-left: 2.5em;
+}
+
+/*CAMBIO DE CONTRASEÑA FORMULARIO*/
+
+.helptext {
+	width: 49%;
+	background: #A55540 linear-gradient(
+              rgba(255,255,255,0.5),
+              rgba(0,0,0,0.5)
+		);
+	color: #fff;
+	padding: 0.5em 2em;
+}
+
+.titulo__help {
+	padding: 0;
+	margin: 0;
+	font-size: 2.7em !important;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.titulo__help span {
+	font-size: 0.8em !important;
+}
+
+.helptext ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.helptext ul li {
+	width: 100%;
+	line-height: 3.5em;
+	font-weight: bold;
+}
+
+.color_1 {
+	color: #111;
+	background: rgba(255,255,255,0.6);
+}
+
+.color_2 {
+	background: rgba(91,91,91,0.6);
+}
