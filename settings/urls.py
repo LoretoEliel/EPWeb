@@ -55,7 +55,7 @@ urlpatterns = [
     #HOME O DENTRO DEL SISTEMA
     url(r'^home/$', 'contenido.views.home', name="Home"),
         url(r'^libro/(?P<slug>[-\w]+)/$', LibroDetailView.as_view()),
-        url(r'^update/(?P<slug>[-\w]+)/$', LibroUpdateView.as_view(), name="actualizando"),
+        url(r'^update/(?P<pk>[\w-]+)/$', LibroUpdateView.as_view(), name="actualizar_libro"),
         url(r'^mi_perfil/$', 'acounts.views.my_perfil', name="MyPerfil"),
 
     #CONTACTAME

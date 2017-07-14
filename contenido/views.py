@@ -15,8 +15,8 @@ from django.views.generic import ListView, DeleteView, TemplateView, UpdateView,
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 # from .forms import FormularioEvento
 from django.core.urlresolvers import reverse_lazy
-from .forms import *
-from .models import *
+from .forms import libroForm
+from .models import libro
 from acounts.models import reg_foto
 
 # Buscador
@@ -129,7 +129,6 @@ class LibroDetailView(DetailView):
 
 class LibroUpdateView(UpdateView):
 	template_name = 'actualizar_libro.html'
-	form_class = libroForm
 	model = libro
-	#fields = ['titulo', 'escritor', 'categoria', 'descripcion', 'libro']
-	success_url = 'MisLibros'
+	fields = ['titulo', 'escritor', 'categoria', 'descripcion', 'libro']
+	success_url = reverse_lazy('MisLibros')
