@@ -178,6 +178,12 @@
   }
 }
 
+@media screen and (max-width: 1367px) {
+  .caja-banner {
+    width: 96.2%;
+  }
+}
+
 @media screen and (max-width: 1325px) {
   .caja-banner {
     width: 96.5%;
