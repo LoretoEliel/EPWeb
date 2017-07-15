@@ -84,7 +84,8 @@
           </div>
           <div class="tab-pane" id="contacto">
             <br><br>
-            <form class="form form-register" action="">
+            <form class="form form-register" method="POST" action="/home/" onsubmit="return validar();">
+							{% csrf_token %}
               <div class="content">
                 <div class="form-group label-floating">
                     <label class="control-label" for="id_email">E-mail ejemplo@gmail.com</label>

@@ -18,6 +18,9 @@ from django.core.urlresolvers import reverse_lazy
 from .forms import libroForm
 from .models import libro
 from acounts.models import reg_foto
+from acounts.forms import ContactoFrom
+from django.conf import settings
+from django.core.mail import EmailMessage, send_mail
 
 # Buscador
 from django.db.models import Q
@@ -28,6 +31,21 @@ def index(request):
 
 @login_required()
 def home(request):
+	if request.method == 'POST':
+		form = ContactoFrom(request.POST)
+		if form.is_valid():
+			asunto = 'Café Intelectual - Mensaje'
+			email = form.cleaned_data['email']
+			mensaje = form.cleaned_data['mensaje']
+			mail = EmailMessage(asunto,
+								email,
+								mensaje,
+								to = [settings.EMAIL_HOST_USER])
+			mail.send()
+		return HttpResponseRedirect('/home/')
+	else:
+		form = ContactoFrom()
+
 	queryset_list = libro.objects.all().order_by('-subida')
 	Page_reques_var = "page"
 	busqueda = request.GET.get("q")
@@ -55,6 +73,7 @@ def home(request):
 		'categoria': 'List',
 		'subida': 'List',
 		'autor': 'List',
+		'form': form,
 		'Page_reques_var': Page_reques_var
 	}
 	return render_to_response('home.html', contexto, context_instance=RequestContext(request))

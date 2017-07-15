@@ -53,7 +53,7 @@ def add_user(request):
 
 			# Guardar nuevos atributos de usuario
             user.save()
-            return HttpResponseRedirect('/success/')    
+            return HttpResponseRedirect('/success/')
             #tambien se puede usar
             #return HttpResponseRedirect(reverse('main.html'))  # Redirect after POST
     else:
@@ -88,7 +88,7 @@ def contacto_email(request):
     if request.method == 'POST':
         form = ContactoFrom(request.POST)
         if form.is_valid():
-            asunto = 'EPWeb - Mensaje'
+            asunto = 'Café Intelectual - Mensaje'
             email = form.cleaned_data['email']
             mensaje = form.cleaned_data['mensaje']
             mail = EmailMessage(asunto,
@@ -96,11 +96,8 @@ def contacto_email(request):
                                 mensaje,
                                 to = [settings.EMAIL_HOST_USER])
             mail.send()
-        return HttpResponseRedirect('/email_envidado/')
+        return HttpResponseRedirect('/home/')
     else:
         form = ContactoFrom()
 
-    return render_to_response('contacto.html', {'form': form}, context_instance=RequestContext(request))
-
-def contacto_exitoso(request):
-    return render_to_response('contacto_exitoso.html')
+    return render_to_response('home.html', {'form': form}, context_instance=RequestContext(request))

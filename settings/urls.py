@@ -58,11 +58,6 @@ urlpatterns = [
         url(r'^update/(?P<pk>[\w-]+)/$', LibroUpdateView.as_view(), name="actualizar_libro"),
         url(r'^mi_perfil/$', 'acounts.views.my_perfil', name="MyPerfil"),
 
-    #CONTACTAME
-    #url(r'^contacto/$', ContactFormView.as_view(), name='contacto'),
-    url(r'^contacto/$', 'acounts.views.contacto_email', name="Contacto"),
-        url(r'^email_envidado/$', 'acounts.views.contacto_exitoso', name="Contacto_Exitoso"),
-
     #ESTO ES PARA AGREGAR CONTENIDO AL BLOG
     url(r'^agregar_libro/$', 'contenido.views.UploadLibro', name="Libros"),
         url(r'^libro_guardado/$', 'contenido.views.libro_guardado', name="Libro_Guardado"),
