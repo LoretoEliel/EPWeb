@@ -58,14 +58,16 @@ body {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
     transform: scale(0.9); }
-  .btn-ayuda_icon {
+  .btn-ayuda_icon,
+  .close_btn {
     font-size: 4em;
     color: var(--Cborder);
     -webkit-transition: all 0.8s;
     -o-transition: all 0.8s;
     transition: all 0.8s;
     display: none; }
-    .btn-ayuda_icon:hover {
+    .btn-ayuda_icon:hover,
+    .close_btn:hover {
       color: #b36730; }
 
 .close_btn {
