@@ -7,7 +7,7 @@ body {
 .caja-ayuda {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   margin: auto;
@@ -27,7 +27,7 @@ body {
 .btn-ayuda {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
