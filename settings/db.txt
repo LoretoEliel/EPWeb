@@ -1,3 +1,28 @@
+acerca de nosotros
+
+Café Intelectual no es mas que una pagina dedicada a aquellos lectores de todas las edades, ideologias, gustos y demás, con el fin de facilitarles las descargas de sus libros de interés. Además se desea llevar la lectura a aquellos que aun no se sumergen en tan maravilloso arte.
+En esta pagina se desea, ademas de lo antes expuesto, proporcionar al usuario las herramientas para comunicarse y conocer a personas nuevas que compartan el mismo interes por la lectura, y así mismo, incentivarlos a desarrollar conversatorios sobre diferentes temas a nivel intelectual y de conocimientos sanos para el crecimiento intelectual del público.
+
+Sus desarrolladores
+Quienes trabajan para el mantenimiento y uso eficaz de esta página:
+Desarrollador: Eliel A. Loreto L. - Estudiante de Ingeniería Informática En Guanare Edo. Portuguesa - Venezuela.
+Su acesora: Yendy Y. Villavicencio C. - T.S.U en Administraión.
+Seguiremos trabajando para el mejoramiento de la pagina.
+
+
+¿Cómo puedo descargar Libros?
+R: Debes dar click en la opción ''LEER MÁS'' que se encuentra debajo de la publicación de cada libro. Luego deberas pulsar ''DESCARGAR'' y esperar que se redireccione a la pagina de MEGA donde se encuentra el link de desarga. Allí apareceran 2 opciones ''Desargar con MEGAsync'' y ''Descargar con el navegador''. Selecciona la de tu
+preferencia.
+
+¿Que es MEGAsync ?
+R: Es una aplicación que puedes descargar para crear una extención de MEGA en tu computadora o tablet. De esta manera podras descargar archivos de MEGA sin problemas de que se corte la descarga y debas reiniciar al momento de perder tu conexión a internet, ya que al perder conexión y retomarla, la descarga continuará desde donde quedó antes.
+
+¿Cómo puedo subir libros?
+R: Deberas crear una cuenta de MEGA con tu correo y luego cargar los libros desde tu ordenador a tu cuenta de MEGA para de allí, comenzar a subirlos a la pagina.
+
+¿Cómo obtener los libros de mega?
+R: Despues de haber subido los libros de tu ordenador a tu cuenta de MEGA, daras click en ''Add '' y abriras en una pestaña nueva donde deberá estar tu cuenta de MEGA y allí buscaras el libro, daras click derecho sobre él y seleciona la opción ''Obtener enlace'' y copia el link para pegarlo en la pagina de café intelectual donde anteriormente diste click a ''add'' en la opcion '' Enlace de MEGA''.
+
 // BASE DE DATOS LOCAL
 
 DATABASES = {
