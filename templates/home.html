@@ -46,6 +46,47 @@
                 window.onhashchange=function(){window.location.hash="no-back-button";}
             }
         </script>
+				<script type="text/javascript">
+					(function(document) {
+					  'use strict';
+
+					  var LightTableFilter = (function(Arr) {
+
+					    var _input;
+
+					    function _onInputEvent(e) {
+					      _input = e.target;
+					      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+					      Arr.forEach.call(tables, function(table) {
+					        Arr.forEach.call(table.tBodies, function(tbody) {
+					          Arr.forEach.call(tbody.rows, _filter);
+					        });
+					      });
+					    }
+
+					    function _filter(row) {
+					      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+					      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+					    }
+
+					    return {
+					      init: function() {
+					        var inputs = document.getElementsByClassName('light-table-filter');
+					        Arr.forEach.call(inputs, function(input) {
+					          input.oninput = _onInputEvent;
+					        });
+					      }
+					    };
+					  })(Array.prototype);
+
+					  document.addEventListener('readystatechange', function() {
+					    if (document.readyState === 'complete') {
+					      LightTableFilter.init();
+					    }
+					  });
+
+					})(document);
+				</script>
 
 	<title>Café Intelectual</title>
 </head>
@@ -79,8 +120,27 @@
       <div class="content">
         <div class="tab-content text-center">
           <div class="tab-pane active" id="ayuda">
-            <h3>¿Tienes alguna pregunta?</h3>
-            <p>Encuentra respuesta a las preguntas más comunes</p>
+            <h3 style="margin-top: -0.3em;" class="text-center">¿Tienes alguna pregunta?</h3>
+						<div style="margin-top: -1.5em;" class="derecha" id="buscar">
+							<input type="search" class="light-table-filter form-control" data-table="order-table" placeholder="Encuentra respuesta a las preguntas más comunes">
+						</div>
+						<table class="order-table table table-striped">
+							<tbody>
+								<tr>
+									<td>¿Cómo puedo descargar Libros? <br><br><p>R: Debes dar click en la opción "LEER MÁS" que se encuentra debajo de la publicación de cada libro. Luego deberas pulsar ''DESCARGAR'' y esperar que se redireccione a la pagina de MEGA donde se encuentra el link de desarga. Allí apareceran 2 opciones ''Desargar con MEGAsync'' y ''Descargar con el navegador''. Selecciona la de tu
+									preferencia.</p></td>
+								</tr>
+								<tr>
+									<td>¿Que es MEGAsync? <br><br><p>R: Es una aplicación que puedes descargar para crear una extención de MEGA en tu computadora o tablet. De esta manera podras descargar archivos de MEGA sin problemas de que se corte la descarga y debas reiniciar al momento de perder tu conexión a internet, ya que al perder conexión y retomarla, la descarga continuará desde donde quedó antes.</p></td>
+								</tr>
+								<tr>
+									<td>¿Cómo puedo subir libros? <br><br><p>R: Deberas crear una cuenta de MEGA con tu correo y luego cargar los libros desde tu ordenador a tu cuenta de MEGA para de allí, comenzar a subirlos a la pagina.</p></td>
+								</tr>
+								<tr>
+									<td>¿Cómo obtener los libros de mega? <br><br><p>R: Despues de haber subido los libros de tu ordenador a tu cuenta de MEGA, daras click en ''Add '' y abriras en una pestaña nueva donde deberá estar tu cuenta de MEGA y allí buscaras el libro, daras click derecho sobre él y seleciona la opción ''Obtener enlace'' y copia el link para pegarlo en la pagina de café intelectual donde anteriormente diste click a "add" en la opcion "Enlace de MEGA".</p></td>
+								</tr>
+							</tbody>
+						</table>
           </div>
           <div class="tab-pane" id="contacto">
             <br><br>

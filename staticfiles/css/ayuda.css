@@ -92,8 +92,8 @@ input[type="checkbox"] {
 
 .tab-content {
   overflow-y: auto;
-  height: 323px;
-  max-height: 323px;
+  height: 72vh;
+  max-height: 72vh;
   text-align: left; }
   .tab-content::-webkit-scrollbar {
     width: 6px;
