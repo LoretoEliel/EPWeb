@@ -24,9 +24,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
+    #INDEX CON EFECTO PARALLAX
+    url(r'^$', 'contenido.views.index', name='index'),
+
     #ESTO ES EL SISTEMA LOGIN
-    url(r'^$', login,
-        {'template_name': 'index.html'},
+    url(r'^login/$', login,
+        {'template_name': 'login.html'},
         name="login"),
     url(r'^logout/$', logout,
         {'template_name': 'logout.html'}),

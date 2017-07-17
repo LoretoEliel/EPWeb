@@ -1,0 +1,90 @@
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url(../img/banner.gif);
+    background-repeat: no-repeat;
+    background-size: auto 150vh;
+    background-position: center 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    background: rgba(74, 77, 79, 0.8);
+    margin: 0;
+    margin-top: -0.5em;
+}
+
+footer, h1 {
+    line-height: 100vh;
+    text-align: center;
+    color: #fff;
+    font-size: 3em;
+}
+
+footer {
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 125vh;
+    background-position: center 0;
+}
+
+footer p {
+  height: 100%;
+}
+
+.navbar {
+  position: relative;
+  z-index: 2000;
+}
+
+.logo-index {
+  width: 150px;
+  margin-top: -1.5em;
+  margin-left: -1.2em;
+}
+
+.page {
+    width: 80%;
+    height: 550px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+}
+
+.mosaico {
+  margin-top: -3em;
+  height: 270px;
+}
+
+.img_1 {
+  width: 250px;
+}
+
+.img_2 {
+  width: 230px;
+}
+
+.img_3 {
+  width: 210px;
+}
+
+.titulo_mosaico {
+  position: relative;
+  z-index: 2000;
+  text-shadow: 0 0 30px rgba(0,0,0,0.9);
+}
+
+@media screen and (max-width: 768px) {
+  .logo-index {
+    width: 70px;
+    margin-top: -1.2em;
+    margin-left: -1em;
+  }
+
+  footer {
+    background-size: 100vw 145vh;
+  }
+}
