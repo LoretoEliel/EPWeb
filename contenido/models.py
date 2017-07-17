@@ -25,3 +25,13 @@ class libro(models.Model):
 		if not self.id:
 			self.slug = slugify(self.titulo)
 		super(libro, self).save(*args, **kwargs)
+
+class ayuda(models.Model):
+	Pregunta = models.CharField(max_length=500, null=True, blank=True)
+	R_pregunta = models.TextField(max_length=9000000, null=True, blank=True)
+	subida = models.DateTimeField(auto_now_add=True, auto_now=False)
+	actualizado = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+	def __unicode__(self):
+		Ayuda = "%s" %(self.Pregunta)
+		return Ayuda

@@ -16,7 +16,7 @@ from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteg
 # from .forms import FormularioEvento
 from django.core.urlresolvers import reverse_lazy
 from .forms import libroForm
-from .models import libro
+from .models import libro, ayuda
 from acounts.models import reg_foto
 from acounts.forms import ContactoFrom
 from django.conf import settings
@@ -47,6 +47,7 @@ def home(request):
 		form = ContactoFrom()
 
 	queryset_list = libro.objects.all().order_by('-subida')
+	queryset_list = ayuda.objects.all()
 	Page_reques_var = "page"
 	busqueda = request.GET.get("q")
 	if busqueda:
@@ -73,6 +74,8 @@ def home(request):
 		'categoria': 'List',
 		'subida': 'List',
 		'autor': 'List',
+		'Pregunta': 'List',
+		'R_pregunta': 'List',
 		'form': form,
 		'Page_reques_var': Page_reques_var
 	}

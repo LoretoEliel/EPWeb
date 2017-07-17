@@ -16,3 +16,13 @@ class AdminLibro(admin.ModelAdmin):
 	class Meta:
 		model = libro
 admin.site.register(libro, AdminLibro)
+
+class AdminAyuda(admin.ModelAdmin):
+	list_display = ['__unicode__',
+					'R_pregunta',
+					'subida',
+					'actualizado']
+
+	class Meta:
+		model = ayuda
+admin.site.register(ayuda, AdminAyuda)
