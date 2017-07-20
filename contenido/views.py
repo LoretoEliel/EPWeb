@@ -47,7 +47,7 @@ def home(request):
 		form = ContactoFrom()
 
 	queryset_list = libro.objects.all().order_by('-subida')
-	queryset_list = ayuda.objects.all()
+	queryset_ayuda = ayuda.objects.all()
 	Page_reques_var = "page"
 	busqueda = request.GET.get("q")
 	if busqueda:

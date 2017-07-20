@@ -126,8 +126,8 @@
 						</div>
 						<table class="order-table table table-striped">
 							<tbody>
-								{% if object_list %}
-								{% for ayuda in object_list %}
+								{% if queryset_ayuda %}
+								{% for ayuda in queryset_ayuda %}
 								<tr>
 									<td>{{ ayuda.Pregunta }}<br><br><p>R: {{ ayuda.R_pregunta }}</p></td>
 								</tr>
