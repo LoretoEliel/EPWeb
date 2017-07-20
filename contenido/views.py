@@ -68,6 +68,7 @@ def home(request):
 
 	contexto = {
 		'object_list':queryset,
+		'object_ayuda':queryset_ayuda,
 		'titulo':'List',
 		'libro': 'List',
 		'escritor': 'List',
