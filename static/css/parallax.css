@@ -4,17 +4,32 @@ body, html {
 }
 
 body {
-    background-image: url(../img/banner.gif);
+    background-image: url(/static/img/parallax-banner.jpg);
     background-repeat: no-repeat;
-    background-size: auto 150vh;
+    background-size: 100vw 120vh;
     background-position: center 0;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+  background: #ddd;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #a45540;
+  border: 3px solid #ddd;
+}
+
 h1 {
-    background: rgba(74, 77, 79, 0.8);
+    background: linear-gradient(
+      rgba(74, 77, 79, 0.8) 40%,
+      rgba(74, 77, 79, 0.4) 60%,
+      transparent 100%
+    );
     margin: 0;
-    margin-top: -0.5em;
 }
 
 footer, h1 {
@@ -25,25 +40,21 @@ footer, h1 {
 }
 
 footer {
-    background-image: url(../img/bg.jpg);
+    background-image: url(/static/img/parallax-footer.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 125vh;
     background-position: center 0;
 }
 
 footer p {
+  background: linear-gradient(
+      #111 5%,
+      rgba(1,1,1,0.8) 15%,
+      rgba(1,1,1,0.3) 35%,
+      transparent 100%
+  );
+  margin-top: -1em;
   height: 100%;
-}
-
-.navbar {
-  position: relative;
-  z-index: 2000;
-}
-
-.logo-index {
-  width: 150px;
-  margin-top: -1.5em;
-  margin-left: -1.2em;
 }
 
 .page {

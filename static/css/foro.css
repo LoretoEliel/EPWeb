@@ -15,12 +15,14 @@ body {
   background: #f2f2f2;
   overflow-y: scroll; }
   .lista-user::-webkit-scrollbar {
-    width: 8px;
-    background: #ddd; }
+    width: 12px;
+    background: #ddd;
+  }
   .lista-user::-webkit-scrollbar-thumb {
-    background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
-    background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-    background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
+    border-radius: 50px;
+    background: #a45540;
+    border: 3px solid #ddd;
+  }
   .lista-user__config {
     display: -webkit-box;
     display: -webkit-flex;
@@ -133,12 +135,15 @@ body {
   padding: 0 1.5em;
   border: 1px solid rgba(0, 0, 0, 0.2); }
   .chat-caja::-webkit-scrollbar {
-    width: 10px;
-    background: #ddd; }
+    width: 12px;
+    background: #ddd;
+  }
+
   .chat-caja::-webkit-scrollbar-thumb {
-    background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
-    background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-    background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
+    border-radius: 50px;
+    background: #a45540;
+    border: 3px solid #ddd;
+  }
   .chat-caja h2 {
     font-size: 2em; }
   .chat-caja__content {
@@ -184,12 +189,16 @@ body {
     font-weight: bold; }
     .redactar__escribir:focus {
       color: #000; }
-    .redactar__escribir::-webkit-scrollbar {
-      width: 10px; }
-    .redactar__escribir::-webkit-scrollbar-thumb {
-      background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
-      background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-      background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
+      .redactar__escribir::-webkit-scrollbar {
+        width: 12px;
+        background: #ddd;
+      }
+
+      .redactar__escribir::-webkit-scrollbar-thumb {
+        border-radius: 50px;
+        background: #a45540;
+        border: 3px solid #ddd;
+      }
   .redactar__emoji {
     position: absolute;
     left: 0.5em;
@@ -234,11 +243,15 @@ body {
     -o-transition: all 0.5s;
     transition: all 0.5s; }
     .redactar__img::-webkit-scrollbar {
-      width: 8px; }
+      width: 12px;
+      background: #ddd;
+    }
+
     .redactar__img::-webkit-scrollbar-thumb {
-      background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
-      background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-      background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
+      border-radius: 50px;
+      background: #a45540;
+      border: 3px solid #ddd;
+    }
     .redactar__img li {
       width: 60px;
       font-size: 32px;

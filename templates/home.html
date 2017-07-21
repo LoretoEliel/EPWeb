@@ -28,15 +28,16 @@
               overflow-x: hidden;
             }
 
-            body::-webkit-scrollbar {
-              width: 10px;
-              background: #ddd;
-            }
-            body::-webkit-scrollbar-thumb {
-              background: #A55540 -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
-              background: #A55540 -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-              background: #A55540 linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
-            }
+						body::-webkit-scrollbar {
+						  width: 12px;
+						  background: #ddd;
+						}
+
+						body::-webkit-scrollbar-thumb {
+						  border-radius: 50px;
+						  background: #a45540;
+						  border: 3px solid #ddd;
+						}
         </style>
 
         <script type="text/javascript">
@@ -126,11 +127,12 @@
 						</div>
 						<table class="order-table table table-striped">
 							<tbody>
-								<!--{% if queryset_ayuda %}
-								{% for ayuda in queryset_ayuda %}-->
 								<tr>
 									<td>ESTE APARTADO ESTA EN DESARROLLO PERO MANDANOS TU MENSAJE EN LA PARTE DE CONTACTO</td>
 								</tr>
+								<!--{% if queryset_ayuda %}
+								{% for ayuda in queryset_ayuda %}-->
+
 								<!--{% endfor %}
 								<td>{{ ayuda.Pregunta }}<br><br><p>R: {{ ayuda.R_pregunta }}</p></td>
 								{% endif %}-->
@@ -429,6 +431,23 @@
 			    });
 			  </script>
     <!-- FIN DE SLIDER -->
+
+		<style media="screen">
+			.modal {
+				overflow-y: auto;
+			}
+
+			.modal::-webkit-scrollbar {
+			  width: 12px;
+			  background: #ddd;
+			}
+
+			.modal::-webkit-scrollbar-thumb {
+			  border-radius: 50px;
+			  background: #a45540;
+			  border: 3px solid #ddd;
+			}
+		</style>
 
     <div class="modal fade" id="Salir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

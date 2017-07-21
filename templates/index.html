@@ -4,76 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" type="image/png" href="/static/img/logo_pestaña.png">
 
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/css/demo.css">
   <link rel="stylesheet" href="/static/css/icon.css">
   <link rel="stylesheet" href="/static/css/material-kit.css">
   <link rel="stylesheet" href="/static/css/parallax.css">
+  <link rel="stylesheet" href="/static/css/menu.css">
+  <script src="/static/js/jquery.min.js"></script>
   <title>Café Intelectual</title>
 </head>
 <body>
-  <nav class="navbar navbar-primary">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-icons">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <img class="logo-index" src="/static/img/logo_pestaña.png">
-        </a>
+  <nav>
+    <div id="cambiar_icon" class="barra-menu">
+      <div class="barra-menu_logo">
+        <img src="/static/img/logo.png" alt="café intelectual">
       </div>
+      <div id="toggleMenu" class="barra-menu_toggle">
+        <span class="toggles-icon material-icons">keyboard_arrow_down</span>
+      </div>
+    </div>
+    <div id="menu" class="barra-opc">
+      <div class="barra-opc_lista">
+        <ul class="reset">
+          <li>
+            <a href="/login/"><span class="material-icons">account_circle</span></a>
+          </li>
+          <li>
+            <a href="/add_user/"><span class="c-degradado material-icons">person_add</span></a>
+          </li>
+          <li>
+            <a href="https://mega.nz/register" target="_blank"><span class="c-marron material-icons">cloud_download</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('#toggleMenu').click(function(){
+        $('#menu').toggleClass('barra-opc_mostrar');
+      });
 
-      <div class="collapse navbar-collapse" id="example-navbar-icons">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="material-icons">airplay</i>
-              Ingresa
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-header">Bienvenido a nuesto sitio</li>
-                <li class="divider"></li>
-                <li>
-                  <a href="/login/">Iniciar sesión</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="/add_user/">Registrarse</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="https://mega.nz/register" target="_blank">Crear cuenta Mega.nz</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      $('#cambiar_icon').click(function(){
+        $('#toggleMenu').toggleClass('toggles-menu')
+      });
+    </script>
+  </nav>
 
   <h1>Café Intelectual</h1>
-  <div class="page">
-    <h2 class="titulo_mosaico">LIBROS CONOCIDOS</h2>
-    <img class="mosaico img_1" src="/static/img/libros/lb1.jpg" alt="">
-    <img class="mosaico img_1" src="/static/img/libros/lb2.jpg" alt="">
-    <img class="mosaico img_1" src="/static/img/libros/lb3.jpg" alt="">
-    <img class="mosaico img_2" src="/static/img/libros/lb4.jpg" alt="">
-    <img class="mosaico img_2" src="/static/img/libros/lb5.jpg" alt="">
-    <img class="mosaico img_2" src="/static/img/libros/lb6.jpg" alt="">
-    <img class="mosaico img_3" src="/static/img/libros/lb7.jpg" alt="">
-    <img class="mosaico img_3" src="/static/img/libros/lb8.jpg" alt="">
+  <div class="sobrante">
+    <div class="page">
+      <h2 class="titulo_mosaico">LIBROS CONOCIDOS</h2>
+      <img class="mosaico img_1" src="/static/img/libros/lb1.jpg" alt="">
+      <img class="mosaico img_1" src="/static/img/libros/lb2.jpg" alt="">
+      <img class="mosaico img_1" src="/static/img/libros/lb3.jpg" alt="">
+      <img class="mosaico img_2" src="/static/img/libros/lb4.jpg" alt="">
+      <img class="mosaico img_2" src="/static/img/libros/lb5.jpg" alt="">
+      <img class="mosaico img_2" src="/static/img/libros/lb6.jpg" alt="">
+      <img class="mosaico img_3" src="/static/img/libros/lb7.jpg" alt="">
+      <img class="mosaico img_3" src="/static/img/libros/lb8.jpg" alt="">
+    </div>
   </div>
   <footer>
-    <p>Unete a nuestro sitio web <a href="/add_user/"><button class="btn btn-primary" type="button" name="button">ENTRA AQUÍ</button></a></p>
+    <p>Unete a nuestro sitio web <a href="#"><button class="btn btn-primary" type="button" name="button">ENTRA AQUÍ</button></a></p>
   </footer>
 
-  <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/parallax.js"></script>
   <script src="/static/js/bootstrap-datepicker.js"></script>
   <script src="/static/js/bootstrap.min.js"></script>

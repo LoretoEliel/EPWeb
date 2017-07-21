@@ -1,0 +1,140 @@
+ul.reset {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.barra-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 70px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 5000;
+  border-bottom: 2px solid #888;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 5px rgba(255, 255, 255, 0.3), 0 0 80px rgba(74, 77, 79, 0.5) inset;
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.3), 0 0 80px rgba(74, 77, 79, 0.5) inset; }
+  .barra-menu_logo {
+    width: 65px;
+    height: 65px;
+    margin-top: 0.2em;
+    margin-left: 0.8em; }
+    .barra-menu_logo img {
+      width: 100%;
+      height: 65px; }
+  .barra-menu_toggle {
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 rgba(153, 153, 153, 0.4) inset;
+    box-shadow: 0 0 rgba(153, 153, 153, 0.4) inset;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; }
+    .barra-menu_toggle:hover {
+      -webkit-box-shadow: 0 -70px rgba(153, 153, 153, 0.4) inset;
+      box-shadow: 0 -70px rgba(153, 153, 153, 0.4) inset; }
+    .barra-menu_toggle .toggles-icon {
+      font-size: 5em;
+      color: #a45540; }
+
+.toggles-menu {
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.barra-opc {
+  width: 70px;
+  height: 230px;
+  background: #fff;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 3000;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-box-shadow: 0 1px 5px rgba(255, 255, 255, 0.3), 0 0 80px rgba(74, 77, 79, 0.5) inset;
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.3), 0 0 80px rgba(74, 77, 79, 0.5) inset; }
+  .barra-opc_lista {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .barra-opc_lista li {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 70px;
+      height: 77px;
+      cursor: pointer;
+      -webkit-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+      .barra-opc_lista li:hover {
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        background: rgba(153, 153, 153, 0.6); }
+      .barra-opc_lista li span {
+        font-size: 3.4em;
+        color: #a45540; }
+
+.barra-opc_mostrar {
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0); }
+
+.sobrante {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(15%, transparent), color-stop(20%, rgba(119, 119, 119, 0.5)), color-stop(70%, #111));
+  background: -webkit-linear-gradient(transparent 15%, rgba(119, 119, 119, 0.5) 20%, #111 70% #000 100%);
+  background: -o-linear-gradient(transparent 15%, rgba(119, 119, 119, 0.5) 20%, #111 70% #000 100%);
+  background: linear-gradient(transparent 15%, rgba(119, 119, 119, 0.5) 20%, #111 70% #000 100%);
+  width: 100%;
+  height: 135vh; }
