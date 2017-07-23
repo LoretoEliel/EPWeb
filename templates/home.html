@@ -23,7 +23,7 @@
         <!-- FIN DE ARCHIVOS CSS -->
         <style type="text/css" media="screen">
             body {
-            	background: #fff;
+            	background: #eee !important;
             	overflow-y: auto;
               overflow-x: hidden;
             }
@@ -92,80 +92,104 @@
 	<title>Café Intelectual</title>
 </head>
 <body onload="nobackbutton()">
-	<div id="btn-ayuda" class="btn-ayuda">
-    <samp id="icon_ayuda" class="btn-ayuda_icon material-icons mostrar_icono">help</samp>
-    <samp id="icon_close" class="close_btn material-icons">add_circle</samp>
-  </div>
-  <div id="caja-ayuda" class="caja-ayuda">
-    <div style="margin-top: 2.5em;" class="card card-nav-tabs">
-      <div class="header header-primary">
-        <div class="nav-tabs-navigation">
-          <div class="nav-tabs-wrapper">
-            <ul class="nav nav-tabs" data-tabs="tabs">
-              <li class="tabs_opc active">
-                <a href="#ayuda" data-toggle="tab">
-                  <i class="material-icons">live_help</i>
-                  Ayuda
-                </a>
-              </li>
-              <li class="tabs_opc">
-                <a href="#contacto" data-toggle="tab">
-                  <i class="material-icons">contact_mail</i>
-                  Contacto
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="tab-content text-center">
-          <div class="tab-pane active" id="ayuda">
-            <h3 style="margin-top: -0.3em;" class="text-center">¿Tienes alguna pregunta?</h3>
-						<div style="margin-top: -1.5em;" class="derecha" id="buscar">
-							<input type="search" class="light-table-filter form-control" data-table="order-table" placeholder="¿Qué deseas saber?">
-						</div>
-						<table class="order-table table table-striped">
-							<tbody>
-								<tr>
-									<td>ESTE APARTADO ESTA EN DESARROLLO PERO MANDANOS TU MENSAJE EN LA PARTE DE CONTACTO</td>
-								</tr>
-								<!--{% if queryset_ayuda %}
-								{% for ayuda in queryset_ayuda %}-->
+	<section class="banner">
+		<div class="container">
+			<div class="row">
+				<div class="caja-banner" style="background-image: url(/static/img/parallax-banner.jpg);">
+					<div class="caja-banner_titulo">
+						<h2>Descarga para leer tus libros <small>- EPUB ó PDF</small></h2>
+					</div>
+					<div class="caja-banner_descarga">
+						<a href="https://mega.nz/#!Glc0SD7I!8lA-1d1nU0aK5mz1Cbc3gcmOcF2VUU2eYbaq5CaDpbs" target="_blank">
+							<img class="ebook" src="/static/img/copyrightbook.png" alt="ebook">
+						</a>
+						<a href="https://mega.nz/#!208xGTjY!ZV7O5PbAiwN0lQHmnJTcozhx7v4eWCgl2WCdiXEtDLI" target="_blank">
+							<img class="adobe" src="/static/img/adobe_main.png" alt="adobe_read">
+						</a>
+					</div>
+					<div class="caja-banner_bajar">
+						<a href="#abajo">
+							<span class="flecha_abajo material-icons">keyboard_arrow_down</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		<div id="btn-ayuda" class="btn-ayuda">
+	    <samp id="icon_ayuda" class="btn-ayuda_icon material-icons mostrar_icono">help</samp>
+	    <samp id="icon_close" class="close_btn material-icons">add_circle</samp>
+	  </div>
+	  <div id="caja-ayuda" class="caja-ayuda">
+	    <div style="margin-top: 2.5em;" class="card card-nav-tabs">
+	      <div class="header header-primary">
+	        <div class="nav-tabs-navigation">
+	          <div class="nav-tabs-wrapper">
+	            <ul class="nav nav-tabs" data-tabs="tabs">
+	              <li class="tabs_opc active">
+	                <a href="#ayuda" data-toggle="tab">
+	                  <i class="material-icons">live_help</i>
+	                  Ayuda
+	                </a>
+	              </li>
+	              <li class="tabs_opc">
+	                <a href="#contacto" data-toggle="tab">
+	                  <i class="material-icons">contact_mail</i>
+	                  Contacto
+	                </a>
+	              </li>
+	            </ul>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="content">
+	        <div class="tab-content text-center">
+	          <div class="tab-pane active" id="ayuda">
+	            <h3 style="margin-top: -0.3em;" class="text-center">¿Tienes alguna pregunta?</h3>
+							<div style="margin-top: -1.5em;" class="derecha" id="buscar">
+								<input type="search" class="light-table-filter form-control" data-table="order-table" placeholder="¿Qué deseas saber?">
+							</div>
+							<table class="order-table table table-striped">
+								<tbody>
+									<tr>
+										<td>ESTE APARTADO ESTA EN DESARROLLO PERO MANDANOS TU MENSAJE EN LA PARTE DE CONTACTO</td>
+									</tr>
+									<!--{% if queryset_ayuda %}
+									{% for ayuda in queryset_ayuda %}-->
 
-								<!--{% endfor %}
-								<td>{{ ayuda.Pregunta }}<br><br><p>R: {{ ayuda.R_pregunta }}</p></td>
-								{% endif %}-->
-							</tbody>
-						</table>
-          </div>
-          <div class="tab-pane" id="contacto">
-            <br><br>
-            <form class="form form-register" method="POST" action="/home/" onsubmit="return validar();">
-							{% csrf_token %}
-              <div class="content">
-                <div class="form-group label-floating">
-                    <label class="control-label" for="id_email">E-mail ejemplo@gmail.com</label>
-                    <input maxlength="" id="id_email" name="email" type="email" class="form-control" required autocomplete="off">
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="id_mensaje">Escriba su mensaje</label>
-                    <input maxlength="5000" id="id_mensaje" name="mensaje" type="text" class="form-control" required autocomplete="off">
-                </div>
-              </div>
-              <div class="footer text-center">
-                  <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size:2em;">send</i></button>
-                  <input type="hidden" name="next" value="{{ next }}">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+									<!--{% endfor %}
+									<td>{{ ayuda.Pregunta }}<br><br><p>R: {{ ayuda.R_pregunta }}</p></td>
+									{% endif %}-->
+								</tbody>
+							</table>
+	          </div>
+	          <div class="tab-pane" id="contacto">
+	            <br><br>
+	            <form class="form form-register" method="POST" action="/home/" onsubmit="return validar();">
+								{% csrf_token %}
+	              <div class="content">
+	                <div class="form-group label-floating">
+	                    <label class="control-label" for="id_email">E-mail ejemplo@gmail.com</label>
+	                    <input maxlength="" id="id_email" name="email" type="email" class="form-control" required autocomplete="off">
+	                </div>
+	                <div class="form-group label-floating">
+	                    <label class="control-label" for="id_mensaje">Escriba su mensaje</label>
+	                    <input maxlength="5000" id="id_mensaje" name="mensaje" type="text" class="form-control" required autocomplete="off">
+	                </div>
+	              </div>
+	              <div class="footer text-center">
+	                  <button class="btn btn-simple btn-primary btn-lg"><i class="material-icons" style="font-size:2em;">send</i></button>
+	                  <input type="hidden" name="next" value="{{ next }}">
+	              </div>
+	            </form>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
        <div class="row">
             <div class="container col-xs-10 col-xs-offset-1 col-ms-10 col-ms-offset-1 col-md-10 col-md-offset-1" style="position: relative; margin-top: 2em;">
-                <h2 class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>Bienvenido {{ user.username }}</small></h2>
+                <h2 id="abajo" class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>Bienvenido {{ user.username }}</small></h2>
                 <div style="border: 1px solid rgba(0,0,0,0.2);"></div>
                 <div class="navegador">
                   <!-- MENU -->
@@ -263,26 +287,6 @@
       	            </li>
       	          </ul>
                 </div>
-
-								<section class="banner">
-									<div class="container">
-										<div class="row">
-											<div class="caja-banner" style="background-image: url(/static/img/banner.gif);">
-												<div class="caja-banner_titulo">
-													<h2>Descarga para leer tus libros <small>- EPUB ó PDF</small></h2>
-												</div>
-												<div class="caja-banner_descarga">
-													<a href="https://mega.nz/#!Glc0SD7I!8lA-1d1nU0aK5mz1Cbc3gcmOcF2VUU2eYbaq5CaDpbs" target="_blank">
-														<img class="ebook" src="/static/img/copyrightbook.png" alt="ebook">
-													</a>
-													<a href="https://mega.nz/#!208xGTjY!ZV7O5PbAiwN0lQHmnJTcozhx7v4eWCgl2WCdiXEtDLI" target="_blank">
-														<img class="adobe" src="/static/img/adobe_main.png" alt="adobe_read">
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
 
                 <form action="" method="GET" style="margin-top: 9em;">
                   <div id="fb-root"></div>
