@@ -20,12 +20,14 @@
             <link href="/static/css/demo.css" rel="stylesheet">
 						<link rel="stylesheet" href="/static/css/home.css">
 						<link rel="stylesheet" href="/static/css/ayuda.css">
+						<link rel="stylesheet" href="/static/css/preloader.css">
         <!-- FIN DE ARCHIVOS CSS -->
         <style type="text/css" media="screen">
             body {
             	background: #eee !important;
             	overflow-y: auto;
               overflow-x: hidden;
+							transition: all 0.5s;
             }
 
 						body::-webkit-scrollbar {
@@ -92,6 +94,12 @@
 	<title>Café Intelectual</title>
 </head>
 <body onload="nobackbutton()">
+	<!--BARRA DE CARGA-->
+	<div class="caja-preloader" id="preloader_efecto">
+		<div class="caja-preloader_preloader">
+			<p class="caja-preloader_titulo">Hola {{user.username}}!!!</p>
+		</div>
+	</div>
 	<section class="banner">
 		<div class="container">
 			<div class="row">
@@ -391,6 +399,7 @@
 
 	<!-- ARCHIVOS JS -->
         <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+				<script src="/static/js/preloader.js" type="text/javascript"></script>
         <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/static/js/material.min.js"></script>
     <!-- FIN DE ARCHIVOS JS -->
