@@ -25,7 +25,7 @@ SECRET_KEY = '$!p2b)n!=2#0k5bfc+20h&c8a-y-njfhkzub+@oi%m6&ey6+$2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cafe-intelectual.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -86,11 +86,10 @@ DATABASES = {
         #para remontar el servidor
         #/etc/init.d/postgresql restart
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6249lact8lcf8',
-        'USER': 'lzzibbuhhdqrdy',
-        'PASSWORD': 'cb56b0f85577420315cd40537a85c8b12805125adde1da293f4d2accfb9927cf',
-        'HOST': 'ec2-54-243-252-91.compute-1.amazonaws.com',
-        'PORT': 5432,
+        'NAME': 'CoffeInt',
+        'USER': 'postgres',
+        'PASSWORD': 'popoleaxD',
+        'HOST': 'localhost',
     }
 }
 

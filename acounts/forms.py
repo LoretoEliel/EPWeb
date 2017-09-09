@@ -5,8 +5,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from .models import *
- 
- 
+
+
 class RegistroForm(ModelForm):
     class Meta:
         model = User
@@ -32,9 +32,9 @@ class ChangePasswordForm(forms.Form):
             attrs={'placeholder': 'Confirm New Password', 'autocomplete': 'off'}))
 
 class fotouser(forms.Form):
-    
+
     css_error_class = 'has-error'
-    
+
     class Meta:
         model = reg_foto
 
@@ -47,4 +47,4 @@ class fotouser(forms.Form):
 
 class ContactoFrom(forms.Form):
     email = forms.EmailField()
-    mensaje = forms.CharField(max_length=50000)   
+    mensaje = forms.CharField(max_length=50000)
