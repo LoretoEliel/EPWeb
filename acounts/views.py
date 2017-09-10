@@ -53,6 +53,12 @@ def add_user(request):
 
 			# Guardar nuevos atributos de usuario
             user.save()
+
+            #JySa
+            acti = login.objects.create(user=user, activo=False)
+            acti.save()
+            ####
+
             return HttpResponseRedirect('/success/')
             #tambien se puede usar
             #return HttpResponseRedirect(reverse('main.html'))  # Redirect after POST

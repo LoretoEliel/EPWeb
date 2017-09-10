@@ -10,14 +10,11 @@ from models import *
 # Create your models here.
 
 class login(models.Model):
-	username = models.CharField(max_length=25, null=True)
-	password = models.CharField(max_length=25, null=True)
-	email = models.CharField(max_length=25, null=True)
-	first_name = models.CharField(max_length=25, null=True)
-	last_name = models.CharField(max_length=25, null=True)
+	user = models.ForeignKey(User)
+	activo = models.BooleanField(default=False)
 
 	def __unicode__(self):
-		dato ="%s" %(self.username) #si usa python3 el unicode es irrelevante. debe modificarlo a:
+		dato ="%s" %(self.user) #si usa python3 el unicode es irrelevante. debe modificarlo a:
 		return dato		#def __str__(self):
 
 class reg_foto(models.Model):

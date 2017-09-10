@@ -56,7 +56,7 @@
                 {% block content %}
                 <h2 class="text-center"><span class="material-icons"><img style="margin-top: -20px;" src="/static/img/logo.png" alt="cafe" width="70px" height="70px"></span> Café Intelectual <small>inicia sesión</small></h2>
                 <div style="border: 1px solid rgba(0,0,0,0.2);">
-                  <form style="box-shadow: 2px 0 rgba(0,0,0,0.2);" class="form form-register col-md-6 col-lg-6" id="contenedor" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+                  <form style="box-shadow: 2px 0 rgba(0,0,0,0.2);" class="form form-register col-md-6 col-lg-6" id="contenedor" method="post" action="">
                   {% csrf_token %}
                       <div class="content">
                           <div class="form-group label-floating">
