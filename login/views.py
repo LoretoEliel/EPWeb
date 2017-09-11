@@ -19,7 +19,7 @@ class LoginView(View):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
-        
+
         if user is not None:
         	if user.is_active:
         		vali = models.login.objects.get(user=user.pk)

@@ -46,7 +46,7 @@
 					<ul class="lista-caja" id="all">
 						{% if object_list %}
 							<script src="/static/js/buscar.js"></script>
-							<script> 
+							<script>
 	    						notificacion()
 	    						message('{{ aja }}')
 	    					</script>
@@ -86,8 +86,8 @@
 					    chatlist.scrollTop = chatlist.scrollHeight;
 					</script>
 					<!--FIN DEL CONTENEDOR-->
-					
-					<script type="text/javascript"> 
+
+					<script type="text/javascript">
 					   function enviar() {
 					   		var msg = document.getElementById("id_mensaje").value;
 					        if(msg != ""){
@@ -110,12 +110,12 @@
 						            		text = text + "<div class='chat-caja__mensaje enviado'><div class='chat-caja__nombre'><h2>" +  ver.user + "</h2></div> <p class='chat-caja__content right'> "+ ver.message + "</p>"  + acti + "</div>"
 						            		$('#msg-list').append(text);
 						            		$('#id_mensaje').val('');
-						            	}               
+						            	}
 						            	var charlist = document.getElementById('msg-list-div');
 							            charlist.scrollTop = charlist.scrollHeight;
 						            }
 					        	})
-					        }			  
+					        }
 					    }
 					</script>
 
@@ -195,7 +195,7 @@
 	        <script src="/static/js/material.min.js"></script>
 	        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 	        <script src="/static/js/socket.io.js"></script>
-	        
+
     	<!-- FIN DE ARCHIVOS JS -->
 
 			<script type="text/javascript">
