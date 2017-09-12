@@ -86,38 +86,6 @@
 					    chatlist.scrollTop = chatlist.scrollHeight;
 					</script>
 					<!--FIN DEL CONTENEDOR-->
-					
-					<script type="text/javascript"> 
-					   function enviar() {
-					   		var msg = document.getElementById("id_mensaje").value;
-					        if(msg != ""){
-					        	$.ajax({
-						            url: '/createbox/',
-						            type:'POST',
-						            datatype:'json',
-						            data:{
-						            	'csrfmiddlewaretoken': '{{ csrf_token }}',
-						            	'ced':msg
-						            },
-						            success:function(data){
-						            	ver = data.ver
-						            	text = " "
-						            	if(data.validar){
-						            		va = ver.enviado
-						            		x = va.substring(0, 10)
-                    						h = va.substring(11, 19)
-											acti = "<p class='chat-caja__fecha'> Ultima vez el " + x +  " a las " + h +"</p>"
-						            		text = text + "<div class='chat-caja__mensaje enviado'><div class='chat-caja__nombre'><h2>" +  ver.user + "</h2></div> <p class='chat-caja__content right'> "+ ver.message + "</p>"  + acti + "</div>"
-						            		$('#msg-list').append(text);
-						            		$('#id_mensaje').val('');
-						            	}               
-						            	var charlist = document.getElementById('msg-list-div');
-							            charlist.scrollTop = charlist.scrollHeight;
-						            }
-					        	})
-					        }			  
-					    }
-					</script>
 
 				<!--CONTENEDOR DEL REDACTAR MENSAJE Y ENVIAR-->
 					{% block content %}
@@ -180,7 +148,7 @@
 					    		<div id="btn-emoji" class="material-icons icon-emoji">mood</div>
 					    	</div>
 					        <textarea class="redactar__escribir" id="id_mensaje" name="mensaje" placeholder="Escribir mensaje..." required></textarea>
-					        <button type= "button" onclick="enviar()" class="redactar__btn material-icons" >send</button>
+					        <button type= "button" onclick="enviar('{{ request.user }}')" class="redactar__btn material-icons" >send</button>
 						    <input type="hidden" id="send" name="next" value="{{ next }}">
 						</div>
 					</form>

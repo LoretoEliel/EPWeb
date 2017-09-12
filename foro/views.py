@@ -77,19 +77,18 @@ class CreateBox(CreateView):
 
 class Messages(TemplateView):
     def get(self, request, *args, **kwargs):
-        data ={'validar':None, 'acu':None}
-        acu = 0
+        data = {}
         acum = 0
         aj =  request.GET["id"]
-        ga = Chat.objects.raw('SELECT  *  FROM foro_chat where id > %s' % (str(aj)))
+        iu = request.user.pk
+        ga = Chat.objects.raw('SELECT  *  FROM foro_chat WHERE id > %s and user_id != %s ' % ( str(aj), str(iu)))
         for i in ga:
+            data[i.id]={
+                'user': i.user.username,
+                'mesage':i.mensaje,
+                'enviado':i.enviado 
+            }
             acum += 1
-        if acum != 0:
-            data = {'validar':True}
-            for i in ga:
-                data[acu]={'user':i.user.username, 'mesage':i.mensaje, 'enviado':i.enviado 
-                }
-                acu +=1
-        else:
-            data= {'validar':False}
+        if(acum<1):
+            data["validar"] = False
         return JsonResponse(data)
