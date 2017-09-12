@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CoffeInt',
         'USER': 'postgres',
-        'PASSWORD': 'popoleaxD',
+        'PASSWORD': '@EliDjangoDev',
         'HOST': 'localhost',
     }
 }

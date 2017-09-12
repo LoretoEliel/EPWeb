@@ -22,7 +22,7 @@ function notificacion() {
 
                 text = text + "<a href='#' class='lista-caja__link'> <li class='lista-caja__user'>" + aja + data[i].username + acti + "</li></a>"
             }
-            ul.innerHTML = text        
+            ul.innerHTML = text
             setTimeout(function (){ notificacion(); }, 1000 *30);
         }
     });
@@ -130,6 +130,3 @@ $(function(){
     refreshTimer = setInterval(obtenermsg, 500)
 });
 */
-
-
-
